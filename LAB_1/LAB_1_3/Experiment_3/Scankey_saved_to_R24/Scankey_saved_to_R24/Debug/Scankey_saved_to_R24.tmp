@@ -1,0 +1,37 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega324P"</DEVICE>
+ <WORKING_DIR>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>D:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m324padef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\Debug\Scankey_saved_to_R24.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Scankey_saved_to_R24.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Scankey_saved_to_R24.map</FILE>
+  <FILE>Scankey_saved_to_R24.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <START><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>15</LINE></START>
+  <LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>21</LINE></LOOP>
+  <KEYPAD_SCAN><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>27</LINE></KEYPAD_SCAN>
+  <HALT><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>25</LINE></HALT>
+  <KEYPAD_SCAN_LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>33</LINE></KEYPAD_SCAN_LOOP>
+  <KEYPAD_SCAN_CHECK_ROW2><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>42</LINE></KEYPAD_SCAN_CHECK_ROW2>
+  <KEYPAD_SCAN_FOUND><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>68</LINE></KEYPAD_SCAN_FOUND>
+  <KEYPAD_SCAN_CHECK_ROW3><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>48</LINE></KEYPAD_SCAN_CHECK_ROW3>
+  <KEYPAD_SCAN_CHECK_ROW4><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>54</LINE></KEYPAD_SCAN_CHECK_ROW4>
+  <KEYPAD_SCAN_NEXT_COL><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>60</LINE></KEYPAD_SCAN_NEXT_COL>
+  <KEYPAD_SCAN_NOT_FOUND><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>75</LINE></KEYPAD_SCAN_NOT_FOUND>
+ </LABELS>
+</ASSEMBLER_INFO>

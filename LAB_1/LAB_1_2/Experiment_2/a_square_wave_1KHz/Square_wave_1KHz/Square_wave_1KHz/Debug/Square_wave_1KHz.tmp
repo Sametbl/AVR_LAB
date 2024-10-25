@@ -1,0 +1,32 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega324PA"</DEVICE>
+ <WORKING_DIR>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\a_square_wave_1KHz\Square_wave_1KHz\Square_wave_1KHz\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>D:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\a_square_wave_1KHz\Square_wave_1KHz\Square_wave_1KHz\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m324padef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\a_square_wave_1KHz\Square_wave_1KHz\Square_wave_1KHz\Debug\Square_wave_1KHz.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Square_wave_1KHz.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Square_wave_1KHz.map</FILE>
+  <FILE>Square_wave_1KHz.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <MAIN><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\a_square_wave_1KHz\Square_wave_1KHz\Square_wave_1KHz\main.asm</FILE><LINE>23</LINE></MAIN>
+  <SQUARE_WAVE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\a_square_wave_1KHz\Square_wave_1KHz\Square_wave_1KHz\main.asm</FILE><LINE>27</LINE></SQUARE_WAVE>
+  <DELAY><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\a_square_wave_1KHz\Square_wave_1KHz\Square_wave_1KHz\main.asm</FILE><LINE>35</LINE></DELAY>
+  <L2><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\a_square_wave_1KHz\Square_wave_1KHz\Square_wave_1KHz\main.asm</FILE><LINE>37</LINE></L2>
+  <L1><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\a_square_wave_1KHz\Square_wave_1KHz\Square_wave_1KHz\main.asm</FILE><LINE>38</LINE></L1>
+  <L0><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\a_square_wave_1KHz\Square_wave_1KHz\Square_wave_1KHz\main.asm</FILE><LINE>39</LINE></L0>
+ </LABELS>
+</ASSEMBLER_INFO>

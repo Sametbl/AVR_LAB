@@ -1,0 +1,29 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega324PA"</DEVICE>
+ <WORKING_DIR>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_4\Modify_TCCR0A_TCCR0B_for_PWM\Modify_TCCR0A_TCCR0B_for_PWM\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>D:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_4\Modify_TCCR0A_TCCR0B_for_PWM\Modify_TCCR0A_TCCR0B_for_PWM\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m324padef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_4\Modify_TCCR0A_TCCR0B_for_PWM\Modify_TCCR0A_TCCR0B_for_PWM\Debug\Modify_TCCR0A_TCCR0B_for_PWM.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Modify_TCCR0A_TCCR0B_for_PWM.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Modify_TCCR0A_TCCR0B_for_PWM.map</FILE>
+  <FILE>Modify_TCCR0A_TCCR0B_for_PWM.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <MAIN><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_4\Modify_TCCR0A_TCCR0B_for_PWM\Modify_TCCR0A_TCCR0B_for_PWM\main.asm</FILE><LINE>26</LINE></MAIN>
+  <INITTIMER0><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_4\Modify_TCCR0A_TCCR0B_for_PWM\Modify_TCCR0A_TCCR0B_for_PWM\main.asm</FILE><LINE>30</LINE></INITTIMER0>
+  <HALT><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_4\Modify_TCCR0A_TCCR0B_for_PWM\Modify_TCCR0A_TCCR0B_for_PWM\main.asm</FILE><LINE>28</LINE></HALT>
+ </LABELS>
+</ASSEMBLER_INFO>

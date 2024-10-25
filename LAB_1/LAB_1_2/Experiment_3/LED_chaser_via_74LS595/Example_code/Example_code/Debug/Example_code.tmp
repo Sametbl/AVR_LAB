@@ -1,0 +1,33 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega324P"</DEVICE>
+ <WORKING_DIR>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_3\LED_chaser_via_74LS595\Example_code\Example_code\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>D:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_3\LED_chaser_via_74LS595\Example_code\Example_code\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m324padef.inc</FILE>
+  <FILE>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\M324PADEF.INC</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_3\LED_chaser_via_74LS595\Example_code\Example_code\Debug\Example_code.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Example_code.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Example_code.map</FILE>
+  <FILE>Example_code.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <MAIN><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_3\LED_chaser_via_74LS595\Example_code\Example_code\main.asm</FILE><LINE>19</LINE></MAIN>
+  <STOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_3\LED_chaser_via_74LS595\Example_code\Example_code\main.asm</FILE><LINE>20</LINE></STOP>
+  <INITPORT><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_3\LED_chaser_via_74LS595\Example_code\Example_code\main.asm</FILE><LINE>27</LINE></INITPORT>
+  <CLEARDATA><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_3\LED_chaser_via_74LS595\Example_code\Example_code\main.asm</FILE><LINE>32</LINE></CLEARDATA>
+  <SHIFTOUTDATA><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_3\LED_chaser_via_74LS595\Example_code\Example_code\main.asm</FILE><LINE>38</LINE></SHIFTOUTDATA>
+  <SHIFTLOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_3\LED_chaser_via_74LS595\Example_code\Example_code\main.asm</FILE><LINE>41</LINE></SHIFTLOOP>
+ </LABELS>
+</ASSEMBLER_INFO>

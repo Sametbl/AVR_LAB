@@ -1,0 +1,73 @@
+<circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="0" >
+
+<item itemtype="Resistor" CircId="Resistor-1" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="120,-228" rotation="90" hflip="1" vflip="1" label="Resistor-1" idLabPos="-16,-24" labelrot="0" valLabPos="-10.4803,-20.7094" valLabRot="0" Resistance="100 Ω" />
+
+<item itemtype="Resistor" CircId="Resistor-3" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="256,36" rotation="90" hflip="1" vflip="1" label="Resistor-3" idLabPos="-16,-24" labelrot="0" valLabPos="-10.1177,11.3921" valLabRot="0" Resistance="100 Ω" />
+
+<item itemtype="Switch" CircId="Switch-5" mainComp="false" Show_id="false" Show_Val="false" Pos="76,-204" rotation="0" hflip="1" vflip="1" label="Switch-5" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" DT="false" Poles="1" />
+
+<item itemtype="Ground" CircId="Ground-6" mainComp="false" Show_id="false" Show_Val="false" Pos="44,-184" rotation="0" hflip="1" vflip="1" label="Ground-6" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Led" CircId="Led-8" mainComp="false" Show_id="false" Show_Val="false" Pos="256,76" rotation="90" hflip="1" vflip="1" label="Led-8" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Ground" CircId="Ground-9" mainComp="false" Show_id="false" Show_Val="false" Pos="256,124" rotation="0" hflip="1" vflip="1" label="Ground-9" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="MCU" CircId="mega324-10" mainComp="false" Show_id="true" Show_Val="false" Pos="164,-276" rotation="360" hflip="1" vflip="1" label="mega324-10" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="8 MHz" Program="LED_chaser_via_74LS595/LED_chaser_via_74LS595/Debug/LED_chaser_via_74LS595.hex" Auto_Load="false" saveEepr="true" Logic_Symbol="false" Wdt_enabled="false" Clk_Out="false" SerialMon="-1" />
+
+<item itemtype="Battery" CircId="Battery-11" mainComp="false" Show_id="false" Show_Val="false" Pos="44,-236" rotation="90" hflip="1" vflip="1" label="Battery-11" idLabPos="-18,-22" labelrot="0" valLabPos="-10,10" valLabRot="0" Voltage="5 V" Resistance="1 mΩ" />
+
+<item itemtype="LedBar" CircId="LedBar-13" mainComp="false" Show_id="false" Show_Val="false" Pos="404,-236" rotation="0" hflip="1" vflip="1" label="LedBar-13" idLabPos="-16,-44" labelrot="0" valLabPos="-16,-56" valLabRot="0" Color="Yellow" Size="8 _Leds" Grounded="true" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Subcircuit" CircId="74HC595-16" mainComp="false" Show_id="true" Show_Val="false" Pos="300,-276" rotation="0" hflip="1" vflip="1" label="74HC595-16" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Input_High_V="2.5 V" Input_Low_V="2.5 V" Input_Imped="1e+09 Ω" Out_High_V="5 V" Out_Low_V="0 V" Out_Imped="40 Ω" Tpd_ps="10 ns" Tr_ps="3 ns" Tf_ps="4 ns" Logic_Symbol="true" />
+
+<item itemtype="Ground" CircId="Ground-17" mainComp="false" Show_id="false" Show_Val="false" Pos="276,-172" rotation="0" hflip="1" vflip="1" label="Ground-17" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Node" CircId="Node-4" mainComp="false" Pos="44,-204" />
+
+<item itemtype="Node" CircId="Node-20" mainComp="false" Pos="120,-204" />
+
+<item itemtype="Connector" uid="Connector-3" startpinid="Battery-11-rPin" endpinid="Node-4-1" pointList="44,-220,44,-204" />
+
+<item itemtype="Connector" uid="Connector-4" startpinid="Node-4-2" endpinid="Ground-6-Gnd" pointList="44,-204,44,-200" />
+
+<item itemtype="Connector" uid="Connector-5" startpinid="Battery-11-lPin" endpinid="Resistor-1-lPin" pointList="44,-252,120,-252,120,-244" />
+
+<item itemtype="Connector" uid="Connector-9" startpinid="Resistor-3-rPin" endpinid="Led-8-lPin" pointList="256,52,256,60" />
+
+<item itemtype="Connector" uid="Connector-10" startpinid="Ground-9-Gnd" endpinid="Led-8-rPin" pointList="256,108,256,92" />
+
+<item itemtype="Connector" uid="Connector-12" startpinid="Switch-5-pinP0" endpinid="Node-4-0" pointList="60,-204,44,-204" />
+
+<item itemtype="Connector" uid="Connector-17" startpinid="74HC595-16-SHC" endpinid="mega324-10-PORTA0" pointList="292,-268,220,-268" />
+
+<item itemtype="Connector" uid="Connector-18" startpinid="74HC595-16-STC" endpinid="mega324-10-PORTA1" pointList="292,-260,220,-260" />
+
+<item itemtype="Connector" uid="Connector-19" startpinid="74HC595-16-DS" endpinid="mega324-10-PORTA2" pointList="292,-236,276,-236,276,-252,220,-252" />
+
+<item itemtype="Connector" uid="Connector-22" startpinid="Ground-17-Gnd" endpinid="74HC595-16-!OE" pointList="276,-188,276,-204,292,-204" />
+
+<item itemtype="Connector" uid="Connector-20" startpinid="74HC595-16-!MR" endpinid="mega324-10-PORTA3" pointList="292,-212,268,-212,268,-244,220,-244" />
+
+<item itemtype="Connector" uid="Connector-29" startpinid="74HC595-16-Q0" endpinid="LedBar-13-led0-pinP" pointList="340,-260,388,-260" />
+
+<item itemtype="Connector" uid="Connector-30" startpinid="74HC595-16-Q1" endpinid="LedBar-13-led1-pinP" pointList="340,-252,388,-252" />
+
+<item itemtype="Connector" uid="Connector-31" startpinid="LedBar-13-led3-pinP" endpinid="74HC595-16-Q3" pointList="388,-236,340,-236" />
+
+<item itemtype="Connector" uid="Connector-32" startpinid="74HC595-16-Q2" endpinid="LedBar-13-led2-pinP" pointList="340,-244,388,-244" />
+
+<item itemtype="Connector" uid="Connector-33" startpinid="LedBar-13-led4-pinP" endpinid="74HC595-16-Q4" pointList="388,-228,340,-228" />
+
+<item itemtype="Connector" uid="Connector-34" startpinid="74HC595-16-Q5" endpinid="LedBar-13-led5-pinP" pointList="340,-220,388,-220" />
+
+<item itemtype="Connector" uid="Connector-35" startpinid="LedBar-13-led6-pinP" endpinid="74HC595-16-Q6" pointList="388,-212,340,-212" />
+
+<item itemtype="Connector" uid="Connector-36" startpinid="74HC595-16-Q7" endpinid="LedBar-13-led7-pinP" pointList="340,-204,388,-204" />
+
+<item itemtype="Connector" uid="Connector-43" startpinid="Node-20-1" endpinid="mega324-10-RST" pointList="120,-204,156,-204" />
+
+<item itemtype="Connector" uid="Connector-44" startpinid="Switch-5-switch0pinN" endpinid="Node-20-0" pointList="92,-204,120,-204" />
+
+<item itemtype="Connector" uid="Connector-45" startpinid="Node-20-2" endpinid="Resistor-1-rPin" pointList="120,-204,120,-212" />
+
+</circuit>

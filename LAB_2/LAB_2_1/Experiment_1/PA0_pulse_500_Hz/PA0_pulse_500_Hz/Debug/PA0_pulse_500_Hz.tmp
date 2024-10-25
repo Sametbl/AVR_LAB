@@ -1,0 +1,30 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega324PA"</DEVICE>
+ <WORKING_DIR>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_1\PA0_pulse_500_Hz\PA0_pulse_500_Hz\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>D:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_1\PA0_pulse_500_Hz\PA0_pulse_500_Hz\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m324padef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_1\PA0_pulse_500_Hz\PA0_pulse_500_Hz\Debug\PA0_pulse_500_Hz.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>PA0_pulse_500_Hz.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>PA0_pulse_500_Hz.map</FILE>
+  <FILE>PA0_pulse_500_Hz.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <start><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_1\PA0_pulse_500_Hz\PA0_pulse_500_Hz\main.asm</FILE><LINE>17</LINE></start>
+  <PULSE_500Hz><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_1\PA0_pulse_500_Hz\PA0_pulse_500_Hz\main.asm</FILE><LINE>21</LINE></PULSE_500Hz>
+  <TIMER0_DELAY><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_1\PA0_pulse_500_Hz\PA0_pulse_500_Hz\main.asm</FILE><LINE>26</LINE></TIMER0_DELAY>
+  <AGAIN><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_1\PA0_pulse_500_Hz\PA0_pulse_500_Hz\main.asm</FILE><LINE>38</LINE></AGAIN>
+ </LABELS>
+</ASSEMBLER_INFO>

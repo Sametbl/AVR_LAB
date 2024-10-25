@@ -1,0 +1,31 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega324P"</DEVICE>
+ <WORKING_DIR>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\Delay\Adjustable_delay\Adjustable_delay\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>D:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\Delay\Adjustable_delay\Adjustable_delay\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m324padef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\Delay\Adjustable_delay\Adjustable_delay\Debug\Adjustable_delay.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Adjustable_delay.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Adjustable_delay.map</FILE>
+  <FILE>Adjustable_delay.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <MAIN_NPC><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\Delay\Adjustable_delay\Adjustable_delay\main.asm</FILE><LINE>26</LINE></MAIN_NPC>
+  <DELAY><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\Delay\Adjustable_delay\Adjustable_delay\main.asm</FILE><LINE>34</LINE></DELAY>
+  <L2><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\Delay\Adjustable_delay\Adjustable_delay\main.asm</FILE><LINE>36</LINE></L2>
+  <L1><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\Delay\Adjustable_delay\Adjustable_delay\main.asm</FILE><LINE>37</LINE></L1>
+  <L0><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\Delay\Adjustable_delay\Adjustable_delay\main.asm</FILE><LINE>38</LINE></L0>
+ </LABELS>
+</ASSEMBLER_INFO>

@@ -1,0 +1,65 @@
+<circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="1" >
+
+<item itemtype="Battery" CircId="Battery-1" mainComp="false" Show_id="false" Show_Val="false" Pos="-32,-232" rotation="90" hflip="1" vflip="1" label="Battery-1" idLabPos="-18,-22" labelrot="0" valLabPos="-10,10" valLabRot="0" Voltage="5 V" Resistance="1 mΩ" />
+
+<item itemtype="Ground" CircId="Ground-6" mainComp="false" Show_id="false" Show_Val="false" Pos="-32,-156" rotation="0" hflip="1" vflip="1" label="Ground-6" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Switch" CircId="Switch-7" mainComp="false" Show_id="false" Show_Val="false" Pos="0,-196" rotation="0" hflip="1" vflip="1" label="Switch-7" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" DT="false" Poles="1" />
+
+<item itemtype="Resistor" CircId="Resistor-12" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="44,-220" rotation="90" hflip="1" vflip="1" label="Resistor-12" idLabPos="-16,-24" labelrot="0" valLabPos="-10.4803,-20.7094" valLabRot="0" Resistance="100 Ω" />
+
+<item itemtype="Hd44780" CircId="Hd44780-14" mainComp="false" Show_id="true" Show_Val="false" Pos="312,-340" rotation="0" hflip="1" vflip="1" label="Hd44780-14" idLabPos="73.3123,-89.1766" labelrot="0" valLabPos="-16,20" valLabRot="0" Rows="2" Cols="16" />
+
+<item itemtype="LedBar" CircId="LedBar-20" mainComp="false" Show_id="false" Show_Val="false" Pos="116,-332" rotation="270" hflip="1" vflip="1" label="LedBar-20" idLabPos="-16,-44" labelrot="0" valLabPos="-16,-56" valLabRot="0" Color="Yellow" Size="8 _Leds" Grounded="true" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="MCU" CircId="mega324-58" mainComp="false" Show_id="true" Show_Val="false" Pos="164,-268" rotation="0" hflip="1" vflip="1" label="mega324-58" idLabPos="-6.93415,-19.3696" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="8 kHz" Program="LCD_display/LCD_display/Debug/LCD_display.hex" Auto_Load="true" saveEepr="true" Logic_Symbol="false" Wdt_enabled="false" Clk_Out="false" SerialMon="-1" />
+
+<item itemtype="Node" CircId="Node-4" mainComp="false" Pos="-32,-196" />
+
+<item itemtype="Node" CircId="Node-63" mainComp="false" Pos="44,-196" />
+
+<item itemtype="Connector" uid="Connector-2" startpinid="Battery-1-lPin" endpinid="Resistor-12-lPin" pointList="-32,-248,44,-248,44,-236" />
+
+<item itemtype="Connector" uid="Connector-4" startpinid="Node-4-2" endpinid="Ground-6-Gnd" pointList="-32,-196,-32,-172" />
+
+<item itemtype="Connector" uid="Connector-15" startpinid="Battery-1-rPin" endpinid="Node-4-1" pointList="-32,-216,-32,-196" />
+
+<item itemtype="Connector" uid="Connector-12" startpinid="Switch-7-pinP0" endpinid="Node-4-0" pointList="-16,-196,-32,-196" />
+
+<item itemtype="Connector" uid="Connector-249" startpinid="mega324-58-PORTA6" endpinid="Hd44780-14-dataPin6" pointList="220,-212,400,-212,400,-332" />
+
+<item itemtype="Connector" uid="Connector-250" startpinid="mega324-58-PORTA5" endpinid="Hd44780-14-dataPin5" pointList="220,-220,392,-220,392,-332" />
+
+<item itemtype="Connector" uid="Connector-251" startpinid="mega324-58-PORTA4" endpinid="Hd44780-14-dataPin4" pointList="220,-228,384,-228,384,-332" />
+
+<item itemtype="Connector" uid="Connector-252" startpinid="mega324-58-RST" endpinid="Node-63-1" pointList="156,-196,44,-196" />
+
+<item itemtype="Connector" uid="Connector-253" startpinid="Switch-7-switch0pinN" endpinid="Node-63-0" pointList="16,-196,44,-196" />
+
+<item itemtype="Connector" uid="Connector-254" startpinid="Node-63-2" endpinid="Resistor-12-rPin" pointList="44,-196,44,-204" />
+
+<item itemtype="Connector" uid="Connector-255" startpinid="LedBar-20-led7-pinP" endpinid="mega324-58-PORTB0" pointList="148,-316,148,-260,156,-260" />
+
+<item itemtype="Connector" uid="Connector-256" startpinid="LedBar-20-led6-pinP" endpinid="mega324-58-PORTB1" pointList="140,-316,140,-252,156,-252" />
+
+<item itemtype="Connector" uid="Connector-258" startpinid="LedBar-20-led5-pinP" endpinid="mega324-58-PORTB2" pointList="132,-316,132,-244,156,-244" />
+
+<item itemtype="Connector" uid="Connector-259" startpinid="LedBar-20-led4-pinP" endpinid="mega324-58-PORTB3" pointList="124,-316,124,-236,156,-236" />
+
+<item itemtype="Connector" uid="Connector-260" startpinid="LedBar-20-led3-pinP" endpinid="mega324-58-PORTB4" pointList="116,-316,116,-228,156,-228" />
+
+<item itemtype="Connector" uid="Connector-261" startpinid="LedBar-20-led1-pinP" endpinid="mega324-58-PORTB6" pointList="100,-316,100,-212,156,-212" />
+
+<item itemtype="Connector" uid="Connector-262" startpinid="LedBar-20-led2-pinP" endpinid="mega324-58-PORTB5" pointList="108,-316,108,-220,156,-220" />
+
+<item itemtype="Connector" uid="Connector-263" startpinid="LedBar-20-led0-pinP" endpinid="mega324-58-PORTB7" pointList="92,-316,92,-204,156,-204" />
+
+<item itemtype="Connector" uid="Connector-264" startpinid="mega324-58-PORTA2" endpinid="Hd44780-14-PinEn" pointList="220,-244,344,-244,344,-332" />
+
+<item itemtype="Connector" uid="Connector-265" startpinid="Hd44780-14-PinRW" endpinid="mega324-58-PORTA1" pointList="336,-332,336,-252,220,-252" />
+
+<item itemtype="Connector" uid="Connector-266" startpinid="Hd44780-14-PinRS" endpinid="mega324-58-PORTA0" pointList="328,-332,328,-260,220,-260" />
+
+<item itemtype="Connector" uid="Connector-267" startpinid="Hd44780-14-dataPin7" endpinid="mega324-58-PORTA7" pointList="408,-332,408,-204,220,-204" />
+
+</circuit>
