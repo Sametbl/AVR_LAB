@@ -22,16 +22,39 @@
   <FILE>Scankey_saved_to_R24.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <START><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>15</LINE></START>
-  <LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>21</LINE></LOOP>
-  <KEYPAD_SCAN><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>27</LINE></KEYPAD_SCAN>
-  <HALT><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>25</LINE></HALT>
-  <KEYPAD_SCAN_LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>33</LINE></KEYPAD_SCAN_LOOP>
-  <KEYPAD_SCAN_CHECK_ROW2><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>42</LINE></KEYPAD_SCAN_CHECK_ROW2>
-  <KEYPAD_SCAN_FOUND><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>68</LINE></KEYPAD_SCAN_FOUND>
-  <KEYPAD_SCAN_CHECK_ROW3><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>48</LINE></KEYPAD_SCAN_CHECK_ROW3>
-  <KEYPAD_SCAN_CHECK_ROW4><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>54</LINE></KEYPAD_SCAN_CHECK_ROW4>
-  <KEYPAD_SCAN_NEXT_COL><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>60</LINE></KEYPAD_SCAN_NEXT_COL>
-  <KEYPAD_SCAN_NOT_FOUND><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>75</LINE></KEYPAD_SCAN_NOT_FOUND>
+  <MAIN><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>48</LINE></MAIN>
+  <GROUP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>41</LINE></GROUP>
+  <KEYPAD_MSG><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>42</LINE></KEYPAD_MSG>
+  <NUMBER><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>43</LINE></NUMBER>
+  <LCD_INIT><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>306</LINE></LCD_INIT>
+  <DISPLAY_GROUP_MEMBER_NAME><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>124</LINE></DISPLAY_GROUP_MEMBER_NAME>
+  <NUMBER_ON_LCD><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>157</LINE></NUMBER_ON_LCD>
+  <LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>61</LINE></LOOP>
+  <KEYPAD_SCAN><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>70</LINE></KEYPAD_SCAN>
+  <DELAY_10MS><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>422</LINE></DELAY_10MS>
+  <KEYPAD_SCAN_LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>74</LINE></KEYPAD_SCAN_LOOP>
+  <KEYPAD_SCAN_CHECK_ROW2><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>83</LINE></KEYPAD_SCAN_CHECK_ROW2>
+  <KEYPAD_SCAN_FOUND><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>109</LINE></KEYPAD_SCAN_FOUND>
+  <KEYPAD_SCAN_CHECK_ROW3><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>89</LINE></KEYPAD_SCAN_CHECK_ROW3>
+  <KEYPAD_SCAN_CHECK_ROW4><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>95</LINE></KEYPAD_SCAN_CHECK_ROW4>
+  <KEYPAD_SCAN_NEXT_COL><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>101</LINE></KEYPAD_SCAN_NEXT_COL>
+  <KEYPAD_SCAN_NOT_FOUND><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>116</LINE></KEYPAD_SCAN_NOT_FOUND>
+  <LCD_MOVE_CURSOR><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>233</LINE></LCD_MOVE_CURSOR>
+  <LCD_SEND_STRING><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>283</LINE></LCD_SEND_STRING>
+  <DIVISION><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>199</LINE></DIVISION>
+  <LCD_SEND_COMMAND><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>392</LINE></LCD_SEND_COMMAND>
+  <LCD_SEND_CHAR><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>257</LINE></LCD_SEND_CHAR>
+  <DIVISION_LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>209</LINE></DIVISION_LOOP>
+  <DIVISION_STOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>221</LINE></DIVISION_STOP>
+  <LCD_MOVE_CURSOR_SECOND><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>243</LINE></LCD_MOVE_CURSOR_SECOND>
+  <LCD_MOVE_CURSOR_EXIT><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>250</LINE></LCD_MOVE_CURSOR_EXIT>
+  <LCD_SEND_DATA><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>361</LINE></LCD_SEND_DATA>
+  <LCD_SEND_STRING_LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>291</LINE></LCD_SEND_STRING_LOOP>
+  <LCD_SEND_STRING_DONE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>298</LINE></LCD_SEND_STRING_DONE>
+  <LCD_WAIT_BUSY><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>328</LINE></LCD_WAIT_BUSY>
+  <LCD_WAIT_BUSY_LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>336</LINE></LCD_WAIT_BUSY_LOOP>
+  <L2><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>424</LINE></L2>
+  <L1><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>425</LINE></L1>
+  <L0><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm</FILE><LINE>426</LINE></L0>
  </LABELS>
 </ASSEMBLER_INFO>

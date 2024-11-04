@@ -1,6 +1,6 @@
 <ASSEMBLER_INFO>
  <VERSION>2.2.7</VERSION>
- <DEVICE>"ATmega324PA"</DEVICE>
+ <DEVICE>"ATmega324P"</DEVICE>
  <WORKING_DIR>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\Debug</WORKING_DIR>
  <INCLUDE_PATH>
   <DIR>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
@@ -22,14 +22,34 @@
   <FILE>Debounced_press_count.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <START><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>22</LINE></START>
-  <NO_DEBOUNCE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>29</LINE></NO_DEBOUNCE>
-  <CHECK_PRESS><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>30</LINE></CHECK_PRESS>
-  <DELAY_50ms><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>56</LINE></DELAY_50ms>
-  <PRESSED><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>52</LINE></PRESSED>
-  <CHECK_RELEASE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>48</LINE></CHECK_RELEASE>
-  <L2><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>58</LINE></L2>
-  <L1><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>59</LINE></L1>
-  <L0><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>60</LINE></L0>
+  <GROUP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>44</LINE></GROUP>
+  <COUNTER_MSG><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>45</LINE></COUNTER_MSG>
+  <NUMBER><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>46</LINE></NUMBER>
+  <START><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>49</LINE></START>
+  <LCD_INIT><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>248</LINE></LCD_INIT>
+  <DISPLAY_GROUP_MEMBER_NAME><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>60</LINE></DISPLAY_GROUP_MEMBER_NAME>
+  <LCD_MOVE_CURSOR><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>175</LINE></LCD_MOVE_CURSOR>
+  <LCD_SEND_STRING><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>225</LINE></LCD_SEND_STRING>
+  <NUMBER_ON_LCD><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>119</LINE></NUMBER_ON_LCD>
+  <DEBOUNCE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>81</LINE></DEBOUNCE>
+  <CHECK_PRESS><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>82</LINE></CHECK_PRESS>
+  <DELAY_10ms><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>368</LINE></DELAY_10ms>
+  <PRESSED><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>101</LINE></PRESSED>
+  <CHECK_RELEASE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>96</LINE></CHECK_RELEASE>
+  <DIVISION><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>158</LINE></DIVISION>
+  <LCD_SEND_COMMAND><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>334</LINE></LCD_SEND_COMMAND>
+  <LCD_SEND_CHAR><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>199</LINE></LCD_SEND_CHAR>
+  <DIVISION_LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>163</LINE></DIVISION_LOOP>
+  <DIVISION_STOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>170</LINE></DIVISION_STOP>
+  <LCD_MOVE_CURSOR_SECOND><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>185</LINE></LCD_MOVE_CURSOR_SECOND>
+  <LCD_MOVE_CURSOR_EXIT><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>192</LINE></LCD_MOVE_CURSOR_EXIT>
+  <LCD_SEND_DATA><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>303</LINE></LCD_SEND_DATA>
+  <LCD_SEND_STRING_LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>233</LINE></LCD_SEND_STRING_LOOP>
+  <LCD_SEND_STRING_DONE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>240</LINE></LCD_SEND_STRING_DONE>
+  <LCD_WAIT_BUSY><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>270</LINE></LCD_WAIT_BUSY>
+  <LCD_WAIT_BUSY_LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>278</LINE></LCD_WAIT_BUSY_LOOP>
+  <L2><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>370</LINE></L2>
+  <L1><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>371</LINE></L1>
+  <L0><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm</FILE><LINE>372</LINE></L0>
  </LABELS>
 </ASSEMBLER_INFO>

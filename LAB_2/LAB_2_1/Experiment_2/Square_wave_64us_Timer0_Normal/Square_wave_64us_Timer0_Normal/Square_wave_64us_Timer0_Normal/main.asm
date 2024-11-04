@@ -23,9 +23,6 @@ SQUARE_64us:    SBI    PORTB,   3
 
 
 
-
-
-
 ; Last 3 bits of TCCR0B = CS[2:0]
 ; CS[2:0] = 3'b000  ==> Timer Stop
 ; CS[2:0] = 3'b001  ==> Prescale = 1

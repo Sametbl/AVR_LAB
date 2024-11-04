@@ -1,212 +1,233 @@
-.include "m324Pdef.inc"  ; Include Atmega324P definitions
-.org 0x0000 ; interrupt vector table
-rjmp reset_handler ; reset
-.equ	LCDPORT = PORTA  ; Set signal port reg to PORTA
-.equ	LCDPORTDIR = DDRA   ; Set signal port dir reg to PORTA
-.equ	LCDPORTPIN = PINA	; Set clear signal port pin reg to PORTA
-.equ	LCD_RS	= PINA0
-.equ	LCD_RW	= PINA1
-.equ	LCD_EN	= PINA2
-.equ	LCD_D7	= PINA7
-.equ	LCD_D6	= PINA6
-.equ	LCD_D5	= PINA5
-.equ	LCD_D4	= PINA4
-;******************************* Program ID *********************************
-.org    INT_VECTORS_SIZE
-course_name:
-.db         "EX VXL-AVR",0
-course_time:
-.db         "LT.VY & TT.TOAN",0
-reset_handler:
-	CALL	LCD_Init
-; display the first line of information
-    LDI     ZH, high(course_name)        ; point to the information that is to be displayed
-    LDI     ZL, low(course_name)
-    CALL    LCD_Send_String
-	LDI		r16,1
-	LDI		r17,0
-	CALL	LCD_Move_Cursor 
-	LDI    ZH, high(course_time)        ; point to the information that is to be displayed
-    LDI      ZL, low(course_time)
-    CALL    LCD_Send_String
-	LDI    r16,0x0C
-	CALL    LCD_Send_Command
-start:
-    RJMP start
 
+; Step 1: Initialize LCD
+;    - Choose mode: 4-bit   or   8-bit							 Command = 
+;    - Choose dot matrix size: usually 5x7 for each character.	 Command = 0x38
+;    - Turn on Display and Cursor Blinking:						 Command = 0x0E
+;    - Clear Diplsay											 Command = 0x01
+;    - Set Cursor to first row and line							 COmmand = 0x80 
+
+
+
+
+;.INCLUDE "M324PDEF.INC"  ; INCLUDE ATMEGA324PA DEFINITIONS
+.DSEG   ; Data Segment
+COURSE_NAME:		.DB         "EX VXL-AVR",  0
+COURSE_TIME:		.DB         "GROUP: 01",   0
+
+
+.CSEG   ; Code segment
+.ORG 0x0000 ; INTERRUPT VECTOR TABLE
+			JMP     RESET_HANDLER		 ; RESET
+.EQU	LCDPORT    = PORTA			     ; Set signal port reg to porta
+.EQU	LCDPORTDIR = DDRA				 ; Set signal port dir reg to porta
+.EQU	LCDPORTPIN = PINA				 ; Set clear signal port pin reg to porta
+.EQU	LCD_RS     = PINA0
+.EQU	LCD_RW     = PINA1
+.EQU	LCD_EN	   = PINA2
+.EQU	LCD_D7	   = PINA7
+.EQU	LCD_D6	   = PINA6
+.EQU	LCD_D5	   = PINA5
+.EQU	LCD_D4	   = PINA4
+
+
+;******************************* PROGRAM ID *******************************
+.ORG    INT_VECTORS_SIZE
+
+RESET_HANDLER:
+			CALL	LCD_INIT
+
+			LDI		R16,   0                     ; R16 = 0 ==> Cursor = first row
+			LDI		R17,   0                     ; R17 = 0, To set RW = 0 and RS = 0 for writing Command		
+			CALL	LCD_MOVE_CURSOR 
+			LDI     ZH,    HIGH(COURSE_NAME)     ; Point to the information that is to be displayed
+			LDI     ZL,    LOW(COURSE_NAME)
+			CALL    LCD_SEND_STRING
+
+			LDI		R16,   1                     ; R16 = 1 ==> Cursor = second row
+			LDI		R17,   0                     ; R17 = 0, To set RW = 0 and RS = 0 for writing Command
+			CALL	LCD_MOVE_CURSOR 
+			LDI     ZH,    HIGH(COURSE_TIME)     ; POINT TO THE INFORMATION THAT IS TO BE DISPLAYED
+			LDI     ZL,    LOW(COURSE_TIME)
+			CALL    LCD_SEND_STRING
+
+			LDI     R16,   0X0C                  ; FUNCTION: Display ON, Cursor OFF
+			CALL    LCD_SEND_COMMAND
+START:   	RJMP    START						 ; Basically HALT the program
 	
 
-LCD_Move_Cursor:
+LCD_MOVE_CURSOR:
 
-    CPI	    r16,0	;check if first row
-	BRNE	LCD_Move_Cursor_Second
-	ANDI	r17, 0x0F
-	ORI  	r17,0x80    
-	MOV		r16,r17
-    ; Send command to LCD
-    CALL LCD_Send_Command
-	RET
-LCD_Move_Cursor_Second:
-	 CPI	r16,1	;check if second row
-	 BRNE	LCD_Move_Cursor_Exit	;else exit 
-	 ANDI	r17, 0x0F
-	 ORI	r17,0xC0   
-	 MOV	r16,r17 
-    ; Send command to LCD
-    CALL LCD_Send_Command
-LCD_Move_Cursor_Exit:
-    ; Return from function
-    RET
+			CPI		R16,   0				     ; Check if first row
+			BRNE	LCD_MOVE_CURSOR_SECOND
+			ANDI	R17,   0x0F                  ; Set the State of RS and RW pins 
+			ORI		R17,   0x80                  ; R17 = DDRAM location of beginning of first Row
+			MOV		R16,   R17                   ; Save that location to R16
+			CALL    LCD_SEND_COMMAND		     ; Send command to LCD to move cursor 
+			RET
 
-.def	LCDData = r16
-LCD_Send_String:
-    PUSH    ZH                              ; preserve pointer registers
-    PUSH    ZL
-	PUSH	LCDData
-
-; fix up the pointers for use with the 'lpm' instruction
-    LSL     ZL                              ; shift the pointer one bit left for the lpm instruction
-    ROL     ZH
-; write the string of characters
-LCD_Send_String_01:
-    LPM     LCDData, Z+                        ; get a character
-    CPI     LCDData,  0                        ; check for end of string
-    BREQ    LCD_Send_String_02          ; done
-
-; arrive here if this is a valid character
-    CALL    LCD_Send_Data          ; display the character
-    RJMP    LCD_Send_String_01          ; not done, send another character
-
-; arrive here when all characters in the message have been sent to the LCD module
-LCD_Send_String_02:
-	POP		LCDData
-    POP     ZL                              ; restore pointer registers
-    POP     ZH
-    RET
+LCD_MOVE_CURSOR_SECOND:
+			CPI		R16,   1					 ; Check if second row
+			BRNE	LCD_MOVE_CURSOR_EXIT		 ; ELSE EXIT 
+			ANDI	R17,   0x0F					 ; Set the State of RS and RW pins 
+			ORI		R17,   0xC0					 ; R17 = DDRAM location of beginning of second Row
+			MOV		R16,   R17					 ; Save that location to R16
+			CALL    LCD_SEND_COMMAND			 ; Send command to LCD to move cursor 
+LCD_MOVE_CURSOR_EXIT:
+		    RET								
 
 
 
-	LCD_Init:
-    ; Set up data direction register for Port A
-    LDI r16, 0b11110111  ; set PA7-PA4 as outputs, PA2-PA0 as output
-    OUT LCDPORTDIR, r16
-    ; Wait for LCD to power up
-    CALL	DELAY_10MS
-	CALL	DELAY_10MS
-    
-    ; Send initialization sequence
-	LDI r16, 0x02    ; Function Set: 4-bit interface
-    CALL LCD_Send_Command
-    LDI r16, 0x28    ; Function Set: enable 5x7 mode for chars 
-    CALL LCD_Send_Command
-	LDI r16, 0x0E    ; Display Control: Display OFF, Cursor ON
+.DEF	LCDDATA = R16
+LCD_SEND_STRING:
+			PUSH    ZH                           ; Preserve pointer registers
+			PUSH    ZL
+			PUSH	LCDDATA
+												
+			LSL     ZL                           ; LSL + ROL = Shift left for 16-bit Z reigster for the LPM instruction
+			ROL     ZH
+
+LCD_SEND_STRING_LOOP:							 ; Write the string of characters to DDRAM 
+			LPM     LCDDATA,   Z+                ; Get a character
+			CPI     LCDDATA,   0                 ; Check for end of string
+			BREQ    LCD_SEND_STRING_DONE         ; If Null character ==> DONE
+			CALL    LCD_SEND_DATA                ; Display the character
+			RJMP    LCD_SEND_STRING_LOOP         ; Not DONE, send another character
+
+LCD_SEND_STRING_DONE:
+			POP		LCDDATA						 ; RESTORE POINTER REGISTERS
+			POP     ZL                        
+			POP     ZH
+			RET
 
 
-	CALL LCD_Send_Command
-    LDI r16, 0x01    ; Clear Display
-    CALL LCD_Send_Command
-    LDI r16, 0x80    ; Clear Display
-    CALL LCD_Send_Command
-    RET
 
-	LCD_wait_busy:
-	PUSH	r16
-	LDI     r16, 0b00000111  ; set PA7-PA4 as input, PA2-PA0 as output
-    OUT LCDPORTDIR, r16
-	LDI	r16,0b11110010	; set RS=0, RW=1 for read the busy flag
-	OUT	LCDPORT, r16
-	NOP
- LCD_wait_busy_loop:
-      SBI LCDPORT, LCD_EN
-      NOP
-	  NOP
-	  IN r16, LCDPORTPIN
-	  CBI LCDPORT, LCD_EN
-	  NOP
-      SBI LCDPORT, LCD_EN
-      NOP
-	  NOP
-      CBI LCDPORT, LCD_EN
-	  NOP
-	  ANDI	r16,0x80
-	  CPI   r16,0x80
-	  BREQ	LCD_wait_busy_loop
-	  LDI r16, 0b11110111  ; set PA7-PA4 as output, PA2-PA0 as output
-      OUT LCDPORTDIR, r16
-	  LDI	r16,0b00000000	; set RS=0, RW=1 for read the busy flag
-	  OUT	LCDPORT, r16	
-	  POP	r16
-	  RET
+LCD_INIT:
+			LDI    R16,   0b11110111			; Set PA7 -> PA4 as Output, PA2 -> PA0 as output
+			OUT    LCDPORTDIR,  R16
+									
+			CALL   DELAY_10ms					; WAIT FOR LCD TO POWER UP
+			CALL   DELAY_10ms
+											
+			LDI    R16,   0x02					; FUNCTION SET: 4-bit, 2 lines, 5x7 dot interface
+			CALL   LCD_SEND_COMMAND
 
-LCD_Send_Data:
-	PUSH	r17
-	CALL	LCD_wait_busy	;check if LCD is busy
-	MOV		r17,r16		;save the command				
-    ; Set RS high to select data register
-    ; Set RW low to write to LCD
-	ANDI	r17,0xF0
-	ORI	    r17,0x01
-    ; Send data to LCD
-    OUT LCDPORT, r17   
-	NOP
-    ; Pulse enable pin
-    SBI LCDPORT, LCD_EN
-    NOP
-    CBI LCDPORT, LCD_EN
-    ; Delay for command execution
-	;send the lower nibble
-	NOP
-    SWAP	r16
-	ANDI	r16,0xF0
-	; Set RS high to select data register
-    ; Set RW low to write to LCD
-	ANDI	r16,0xF0
-	ORI 	r16,0x01
-    ; Send command to LCD
-    OUT    LCDPORT, r16
-	NOP
-    ; Pulse enable pin
-    SBI LCDPORT, LCD_EN
-    NOP
-    CBI LCDPORT, LCD_EN
-	POP	r17
-    RET
+			LDI    R16,   0x28					; FUNCTION SET: enable 5x7 mode for chars 
+			CALL   LCD_SEND_COMMAND
+			LDI    R16,   0x0E					; DISPLAY CONTROL: DISPLAY ON, CURSOR ON
+			CALL   LCD_SEND_COMMAND
+			LDI    R16,   0x01					; Clear display and DDRAM contents
+			CALL   LCD_SEND_COMMAND
+			LDI    R16,   0x80					; Return Cursor to the beginning
+			CALL   LCD_SEND_COMMAND
+			RET
 
-	LCD_Send_Command:
-	PUSH	r17
-	CALL	LCD_wait_busy	; check if LCD is busy 
-	MOV  	r17,r16		;save the command				
-    ; Set RS low to select command register
-    ; Set RW low to write to LCD
-	ANDI	r17,0xF0
-    ; Send command to LCD
-    OUT    LCDPORT, r17  
-    NOP
-	NOP
-    ; Pulse enable pin
-    SBI LCDPORT, LCD_EN
-    NOP
-    NOP
-    CBI LCDPORT, LCD_EN
-    SWAP	r16
-	ANDI	r16,0xF0
-    ; Send command to LCD
-    OUT LCDPORT, r16   
-    ; Pulse enable pin
-    SBI LCDPORT, LCD_EN
-	NOP
-	NOP
-	CBI	LCDPORT, LCD_EN
-	POP	r17
-    RET
 
-DELAY_10MS:
-    LDI R20,80    ;1MC
-LP2:LDI R22,250  ;1MC
-LP:
-	NOP          ;1MC
-	DEC R22      ;1MC
-	BRNE LP      ;1/2MC
-	DEC R20      ;1MC
-	BRNE LP2     ;1/2MC
-     RET
+
+LCD_WAIT_BUSY:
+			PUSH   R16
+			LDI    R16,   0b00000111			; Set PA7-PA4 as Input, PA2-PA0 as Output
+			OUT    LCDPORTDIR,  R16
+			LDI	   R16,   0b11110010			; Set RS = 0, RW = 1 for read the busy flag
+			OUT	   LCDPORT,     R16
+			NOP
+
+LCD_WAIT_BUSY_LOOP:
+			SBI    LCDPORT,  LCD_EN				; Pulse LCD_EN and read the flag
+			NOP
+			NOP
+			IN     R16,     LCDPORTPIN
+			CBI    LCDPORT,  LCD_EN
+			NOP
+
+			SBI    LCDPORT,  LCD_EN             ; Pulse LCD_EN again
+			NOP
+			NOP
+			CBI    LCDPORT,  LCD_EN
+			NOP
+
+			ANDI   R16,   0x80                  ; Extract PA7 = busy flag
+			CPI	   R16,   0x80                  ; Check if busy flag is set 
+			BREQ   LCD_WAIT_BUSY_LOOP
+
+			LDI    R16,   0b11110111			; Set PA7-PA4 as Output, PA2-PA0 as Output
+			OUT    LCDPORTDIR, R16
+			LDI	   R16,   0b00000000			; Set RS = 0, RW = 1 for read the busy flag
+			OUT	   LCDPORT,    R16	
+			POP	   R16
+			RET
+
+LCD_SEND_DATA:
+			PUSH   R17
+			CALL   LCD_WAIT_BUSY				; Check if lcd is busy
+			MOV	   R17,   R16					; Save the command				
+														
+			ANDI   R17,   0xF0					; Extact the Upper nibble of Command
+			ORI	   R17,   0x01					; Also Set RS = 1 and RW = 0 to write to lcd
+		
+			OUT    LCDPORT,  R17				; Send data to LCD
+			NOP
+			
+			SBI    LCDPORT,  LCD_EN		    	; Pulse ENABLE pin
+			NOP
+			CBI    LCDPORT,  LCD_EN
+			NOP									; DELAY FOR COMMAND EXECUTION
+
+			SWAP   R16							; Swap Higher Nibble to Lower Nibble of Commmand
+			ANDI   R16,  0xF0                   ; And extract the Lower Nibble of the Command similarly
+			ORI	   R16,  0x01					; Also Set RS = 1 and RW = 0 to write to lcd
+		
+
+			OUT    LCDPORT,  R16				; Send command to LCD
+
+			NOP									; Pulse ENABLE pin
+			SBI    LCDPORT,  LCD_EN
+			NOP
+			CBI    LCDPORT,  LCD_EN
+			POP    R17
+			RET
+
+LCD_SEND_COMMAND:
+			PUSH   R17
+			CALL   LCD_WAIT_BUSY				; Check if LCD is busy 
+			MOV    R17,  R16					; Save the command	
+		
+			ANDI   R17,  0xF0					; Extact the Upper nibble of Command
+												; Also Set RS = 1 and RW = 0 to write to lcd
+			
+			OUT    LCDPORT,  R17				; Send command to LCD
+			NOP
+			NOP
+		
+			SBI    LCDPORT,  LCD_EN				; Pulse ENABLE pin
+			NOP
+			NOP
+			CBI    LCDPORT,  LCD_EN
+
+			SWAP   R16							; Swap Higher Nibble to Lower Nibble of Commmand
+			ANDI   R16,  0xF0                   ; And extract the Lower Nibble of the Command similarly
+			OUT    LCDPORT,  R16				; Send command to LCD
+
+			SBI    LCDPORT,  LCD_EN			    ; Pulse ENABLE pin
+			NOP
+			NOP
+			CBI	   LCDPORT,  LCD_EN
+			POP	   R17
+
+			RET
+
+
+
+DELAY_10ms:                 
+		LDI   R22, 30		; These values are calculated similarly in experiment 2           
+L2:     LDI   R21, 172     
+L1:	    LDI   R20, 5     
+L0:		DEC   R20    
+		BRNE  L0      
+		                 
+		DEC   R21    
+		BRNE  L1         
+		                 
+		DEC   R22     
+		BRNE  L2  		
+		                 
+		RET              

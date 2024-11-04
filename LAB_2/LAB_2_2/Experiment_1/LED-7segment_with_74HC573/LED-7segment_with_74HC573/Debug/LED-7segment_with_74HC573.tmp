@@ -1,0 +1,34 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega324P"</DEVICE>
+ <WORKING_DIR>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_1\LED-7segment_with_74HC573\LED-7segment_with_74HC573\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>D:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_1\LED-7segment_with_74HC573\LED-7segment_with_74HC573\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m324padef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_1\LED-7segment_with_74HC573\LED-7segment_with_74HC573\Debug\LED-7segment_with_74HC573.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>LED-7segment_with_74HC573.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>LED-7segment_with_74HC573.map</FILE>
+  <FILE>LED-7segment_with_74HC573.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <MAIN><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_1\LED-7segment_with_74HC573\LED-7segment_with_74HC573\main.asm</FILE><LINE>36</LINE></MAIN>
+  <BCD_TABLE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_1\LED-7segment_with_74HC573\LED-7segment_with_74HC573\main.asm</FILE><LINE>19</LINE></BCD_TABLE>
+  <COMMON_CATHOD_TABLE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_1\LED-7segment_with_74HC573\LED-7segment_with_74HC573\main.asm</FILE><LINE>22</LINE></COMMON_CATHOD_TABLE>
+  <LED_7SEG_PORT_INIT><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_1\LED-7segment_with_74HC573\LED-7segment_with_74HC573\main.asm</FILE><LINE>60</LINE></LED_7SEG_PORT_INIT>
+  <LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_1\LED-7segment_with_74HC573\LED-7segment_with_74HC573\main.asm</FILE><LINE>41</LINE></LOOP>
+  <DISPLAY_7SEG><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_1\LED-7segment_with_74HC573\LED-7segment_with_74HC573\main.asm</FILE><LINE>76</LINE></DISPLAY_7SEG>
+  <DELAY_4ms><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_1\LED-7segment_with_74HC573\LED-7segment_with_74HC573\main.asm</FILE><LINE>116</LINE></DELAY_4ms>
+  <AGAIN><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_1\LED-7segment_with_74HC573\LED-7segment_with_74HC573\main.asm</FILE><LINE>125</LINE></AGAIN>
+ </LABELS>
+</ASSEMBLER_INFO>

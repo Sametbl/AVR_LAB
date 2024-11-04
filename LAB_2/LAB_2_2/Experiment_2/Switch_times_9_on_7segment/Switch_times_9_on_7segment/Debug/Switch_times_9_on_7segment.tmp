@@ -1,0 +1,37 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega324P"</DEVICE>
+ <WORKING_DIR>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_2\Switch_times_9_on_7segment\Switch_times_9_on_7segment\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>D:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_2\Switch_times_9_on_7segment\Switch_times_9_on_7segment\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m324padef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_2\Switch_times_9_on_7segment\Switch_times_9_on_7segment\Debug\Switch_times_9_on_7segment.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Switch_times_9_on_7segment.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Switch_times_9_on_7segment.map</FILE>
+  <FILE>Switch_times_9_on_7segment.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <MAIN><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_2\Switch_times_9_on_7segment\Switch_times_9_on_7segment\main.asm</FILE><LINE>39</LINE></MAIN>
+  <BCD_TABLE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_2\Switch_times_9_on_7segment\Switch_times_9_on_7segment\main.asm</FILE><LINE>20</LINE></BCD_TABLE>
+  <COMMON_CATHODE_TABLE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_2\Switch_times_9_on_7segment\Switch_times_9_on_7segment\main.asm</FILE><LINE>23</LINE></COMMON_CATHODE_TABLE>
+  <LED_7SEG_PORT_INIT><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_2\Switch_times_9_on_7segment\Switch_times_9_on_7segment\main.asm</FILE><LINE>139</LINE></LED_7SEG_PORT_INIT>
+  <READ><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_2\Switch_times_9_on_7segment\Switch_times_9_on_7segment\main.asm</FILE><LINE>48</LINE></READ>
+  <DIVISION><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_2\Switch_times_9_on_7segment\Switch_times_9_on_7segment\main.asm</FILE><LINE>105</LINE></DIVISION>
+  <DISPLAY_7SEG><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_2\Switch_times_9_on_7segment\Switch_times_9_on_7segment\main.asm</FILE><LINE>156</LINE></DISPLAY_7SEG>
+  <DELAY_4ms><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_2\Switch_times_9_on_7segment\Switch_times_9_on_7segment\main.asm</FILE><LINE>194</LINE></DELAY_4ms>
+  <DIVISION_LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_2\Switch_times_9_on_7segment\Switch_times_9_on_7segment\main.asm</FILE><LINE>115</LINE></DIVISION_LOOP>
+  <DIVISION_STOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_2\Switch_times_9_on_7segment\Switch_times_9_on_7segment\main.asm</FILE><LINE>127</LINE></DIVISION_STOP>
+  <AGAIN><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_2\Experiment_2\Switch_times_9_on_7segment\Switch_times_9_on_7segment\main.asm</FILE><LINE>204</LINE></AGAIN>
+ </LABELS>
+</ASSEMBLER_INFO>

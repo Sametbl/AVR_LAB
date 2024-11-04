@@ -2,17 +2,17 @@
 
 <item itemtype="Resistor" CircId="Resistor-1" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-20,-252" rotation="0" hflip="1" vflip="1" label="Resistor-1" idLabPos="-16,-24" labelrot="0" valLabPos="-162.514,-340.306" valLabRot="0" Resistance="100 Ω" />
 
-<item itemtype="Switch" CircId="Switch-4" mainComp="false" Show_id="false" Show_Val="false" Pos="-296,-68" rotation="0" hflip="1" vflip="1" label="Switch-4" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" DT="false" Poles="1" />
+<item itemtype="Switch" CircId="Switch-4" mainComp="false" Show_id="false" Show_Val="false" Pos="-260,-68" rotation="0" hflip="1" vflip="1" label="Switch-4" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" DT="false" Poles="1" />
 
-<item itemtype="Rail" CircId="Rail-5" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-260,-164" rotation="90" hflip="1" vflip="1" label="Rail-5" idLabPos="-5,-10" labelrot="-90" valLabPos="-19.0014,4.59972" valLabRot="-90" Voltage="5 V" />
+<item itemtype="Rail" CircId="Rail-5" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-224,-164" rotation="90" hflip="1" vflip="1" label="Rail-5" idLabPos="-5,-10" labelrot="-90" valLabPos="-19.0014,4.59972" valLabRot="-90" Voltage="5 V" />
 
 <item itemtype="MCU" CircId="mega324-6" mainComp="false" Show_id="true" Show_Val="false" Pos="-132,-140" rotation="0" hflip="1" vflip="1" label="mega324-6" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="8 MHz" Program="PWM_given_code_exmaple/Debug/PWM_given_code_exmaple.hex" Auto_Load="false" saveEepr="true" Logic_Symbol="false" Wdt_enabled="false" Clk_Out="false" SerialMon="-1" />
 
 <item itemtype="Ground" CircId="Ground-8" mainComp="false" Show_id="false" Show_Val="false" Pos="92,-216" rotation="0" hflip="1" vflip="1" label="Ground-8" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
-<item itemtype="Resistor" CircId="Resistor-9" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-260,-112" rotation="90" hflip="1" vflip="1" label="Resistor-9" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="100 Ω" />
+<item itemtype="Resistor" CircId="Resistor-9" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-224,-112" rotation="90" hflip="1" vflip="1" label="Resistor-9" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="100 Ω" />
 
-<item itemtype="Ground" CircId="Ground-10" mainComp="false" Show_id="false" Show_Val="false" Pos="-332,-24" rotation="0" hflip="1" vflip="1" label="Ground-10" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+<item itemtype="Ground" CircId="Ground-10" mainComp="false" Show_id="false" Show_Val="false" Pos="-296,-24" rotation="0" hflip="1" vflip="1" label="Ground-10" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
 
 <item itemtype="Led" CircId="Led-11" mainComp="false" Show_id="false" Show_Val="false" Pos="44,-252" rotation="0" hflip="1" vflip="1" label="Led-11" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
 
@@ -22,41 +22,41 @@
 
 <item itemtype="Led" CircId="Led-14" mainComp="false" Show_id="false" Show_Val="false" Pos="40,-184" rotation="0" hflip="1" vflip="1" label="Led-14" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
 
-<item itemtype="Oscope" CircId="Oscope-15" mainComp="false" Show_id="false" Show_Val="false" Pos="152,-36" rotation="0" hflip="1" vflip="1" label="Oscope-15" idLabPos="-90,-100" labelrot="0" valLabPos="-16,20" valLabRot="0" Basic_X="135 _px" Basic_Y="135 _px" BufferSize="600000" connectGnd="true" InputImped="10 MΩ" TimDiv="100000000" TimPos="0,0,0,0," VolDiv="1,1,1,1," Tunnels=",,,," Trigger="4" Filter="0.1 V" Trigger="4" AutoSC="4" Tracks="1" HideCh="false,false,false,false," VolPos="0,0,0,0," />
+<item itemtype="Oscope" CircId="Oscope-15" mainComp="false" Show_id="false" Show_Val="false" Pos="72,-56" rotation="0" hflip="1" vflip="1" label="Oscope-15" idLabPos="-90,-100" labelrot="0" valLabPos="-16,20" valLabRot="0" Basic_X="135 _px" Basic_Y="135 _px" BufferSize="600000" connectGnd="true" InputImped="10 MΩ" TimDiv="100000000" TimPos="0,0,0,0," VolDiv="1,1,1,1," Tunnels=",,,," Trigger="4" Filter="0.1 V" Trigger="4" AutoSC="4" Tracks="1" HideCh="false,false,false,false," VolPos="0,0,0,0," />
 
-<item itemtype="Oscope" CircId="Oscope-16" mainComp="false" Show_id="false" Show_Val="false" Pos="152,132" rotation="0" hflip="1" vflip="1" label="Oscope-16" idLabPos="-90,-100" labelrot="0" valLabPos="-16,20" valLabRot="0" Basic_X="135 _px" Basic_Y="135 _px" BufferSize="600000" connectGnd="true" InputImped="10 MΩ" TimDiv="100000000" TimPos="0,0,0,0," VolDiv="1,1,1,1," Tunnels=",,,," Trigger="4" Filter="0.1 V" Trigger="4" AutoSC="4" Tracks="1" HideCh="false,false,false,false," VolPos="0,0,0,0," />
+<item itemtype="Oscope" CircId="Oscope-16" mainComp="false" Show_id="false" Show_Val="false" Pos="72,112" rotation="0" hflip="1" vflip="1" label="Oscope-16" idLabPos="-90,-100" labelrot="0" valLabPos="-16,20" valLabRot="0" Basic_X="135 _px" Basic_Y="135 _px" BufferSize="600000" connectGnd="true" InputImped="10 MΩ" TimDiv="100000000" TimPos="0,0,0,0," VolDiv="1,1,1,1," Tunnels=",,,," Trigger="4" Filter="0.1 V" Trigger="4" AutoSC="4" Tracks="1" HideCh="false,false,false,false," VolPos="0,0,0,0," />
 
-<item itemtype="Node" CircId="Node-3" mainComp="false" Pos="-260,-68" />
+<item itemtype="Node" CircId="Node-3" mainComp="false" Pos="-224,-68" />
 
 <item itemtype="Node" CircId="Node-19" mainComp="false" Pos="-52,-184" />
 
 <item itemtype="Node" CircId="Node-20" mainComp="false" Pos="-60,-252" />
 
-<item itemtype="Connector" uid="Connector-1" startpinid="Resistor-9-rPin" endpinid="Node-3-0" pointList="-260,-96,-260,-68" />
+<item itemtype="Connector" uid="Connector-1" startpinid="Resistor-9-rPin" endpinid="Node-3-0" pointList="-224,-96,-224,-68" />
 
-<item itemtype="Connector" uid="Connector-2" startpinid="mega324-6-RST" endpinid="Node-3-1" pointList="-140,-68,-260,-68" />
+<item itemtype="Connector" uid="Connector-2" startpinid="mega324-6-RST" endpinid="Node-3-1" pointList="-140,-68,-224,-68" />
 
 <item itemtype="Connector" uid="Connector-4" startpinid="Led-11-rPin" endpinid="Ground-8-Gnd" pointList="60,-252,92,-252,92,-232" />
 
 <item itemtype="Connector" uid="Connector-5" startpinid="Resistor-1-rPin" endpinid="Led-11-lPin" pointList="-4,-252,28,-252" />
 
-<item itemtype="Connector" uid="Connector-6" startpinid="Node-3-2" endpinid="Switch-4-switch0pinN" pointList="-260,-68,-280,-68" />
+<item itemtype="Connector" uid="Connector-6" startpinid="Node-3-2" endpinid="Switch-4-switch0pinN" pointList="-224,-68,-244,-68" />
 
-<item itemtype="Connector" uid="Connector-10" startpinid="Rail-5-outnod" endpinid="Resistor-9-lPin" pointList="-260,-148,-260,-128" />
+<item itemtype="Connector" uid="Connector-10" startpinid="Rail-5-outnod" endpinid="Resistor-9-lPin" pointList="-224,-148,-224,-128" />
 
 <item itemtype="Connector" uid="Connector-11" startpinid="Led-14-rPin" endpinid="Ground-13-Gnd" pointList="56,-184,88,-184,88,-164" />
 
 <item itemtype="Connector" uid="Connector-13" startpinid="Resistor-12-rPin" endpinid="Led-14-lPin" pointList="-8,-184,24,-184" />
 
-<item itemtype="Connector" uid="Connector-3" startpinid="Switch-4-pinP0" endpinid="Ground-10-Gnd" pointList="-312,-68,-332,-68,-332,-40" />
+<item itemtype="Connector" uid="Connector-3" startpinid="Switch-4-pinP0" endpinid="Ground-10-Gnd" pointList="-276,-68,-296,-68,-296,-40" />
 
-<item itemtype="Connector" uid="Connector-26" startpinid="Oscope-15-Pin0" endpinid="Node-19-1" pointList="64,-84,-52,-84,-52,-184" />
+<item itemtype="Connector" uid="Connector-26" startpinid="Oscope-15-Pin0" endpinid="Node-19-1" pointList="-16,-104,-52,-104,-52,-184" />
 
 <item itemtype="Connector" uid="Connector-27" startpinid="Resistor-12-lPin" endpinid="Node-19-0" pointList="-40,-184,-52,-184" />
 
 <item itemtype="Connector" uid="Connector-28" startpinid="Node-19-2" endpinid="mega324-6-PORTB3" pointList="-52,-184,-180,-184,-180,-108,-140,-108" />
 
-<item itemtype="Connector" uid="Connector-30" startpinid="Oscope-16-Pin1" endpinid="Node-20-1" pointList="64,116,-60,116,-60,-252" />
+<item itemtype="Connector" uid="Connector-30" startpinid="Oscope-16-Pin1" endpinid="Node-20-1" pointList="-16,96,-60,96,-60,-252" />
 
 <item itemtype="Connector" uid="Connector-31" startpinid="Resistor-1-lPin" endpinid="Node-20-0" pointList="-36,-252,-60,-252" />
 

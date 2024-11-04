@@ -1,0 +1,55 @@
+<circuit version="1.1.0-SR0" rev="1917" stepSize="1000000" stepsPS="1000000" NLsteps="100000" reaStep="1000000" animate="1" >
+
+<item itemtype="MCU" CircId="mega324-1" mainComp="false" Show_id="true" Show_Val="false" Pos="-84,-140" rotation="0" hflip="1" vflip="1" label="mega324-1" idLabPos="0,-20" labelrot="0" valLabPos="-16,20" valLabRot="0" Frequency="8 MHz" Program="Timer_1_Interrupt_Toggle/Timer_1_Interrupt_Toggle/Debug/Timer_1_Interrupt_Toggle.hex" Auto_Load="true" saveEepr="true" Logic_Symbol="false" Wdt_enabled="false" Clk_Out="false" SerialMon="-1" />
+
+<item itemtype="Led" CircId="Led-2" mainComp="false" Show_id="false" Show_Val="false" Pos="52,12" rotation="0" hflip="1" vflip="1" label="Led-2" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Color="Yellow" Grounded="false" Threshold="2.4 V" MaxCurrent="30 mA" Resistance="0.6 Ω" />
+
+<item itemtype="Resistor" CircId="Resistor-3" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="12,12" rotation="0" hflip="1" vflip="1" label="Resistor-3" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="100 Ω" />
+
+<item itemtype="Ground" CircId="Ground-4" mainComp="false" Show_id="false" Show_Val="false" Pos="88,44" rotation="0" hflip="1" vflip="1" label="Ground-4" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Push" CircId="Push-5" mainComp="false" Show_id="false" Show_Val="false" Pos="-156,-68" rotation="0" hflip="1" vflip="1" label="Push-5" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Norm_Close="false" Poles="1" />
+
+<item itemtype="Ground" CircId="Ground-6" mainComp="false" Show_id="false" Show_Val="false" Pos="-220,-44" rotation="0" hflip="1" vflip="1" label="Ground-6" idLabPos="-16,8" labelrot="0" valLabPos="-16,20" valLabRot="0" />
+
+<item itemtype="Resistor" CircId="Resistor-7" mainComp="false" ShowProp="Resistance" Show_id="false" Show_Val="true" Pos="-124,-120" rotation="90" hflip="1" vflip="1" label="Resistor-7" idLabPos="-16,-24" labelrot="0" valLabPos="-16,6" valLabRot="0" Resistance="100 Ω" />
+
+<item itemtype="Rail" CircId="Rail-9" mainComp="false" ShowProp="Voltage" Show_id="false" Show_Val="true" Pos="-124,-188" rotation="90" hflip="1" vflip="1" label="Rail-9" idLabPos="-5,-10" labelrot="-90" valLabPos="-18.8387,6" valLabRot="-90" Voltage="5 V" />
+
+<item itemtype="Oscope" CircId="Oscope-10" mainComp="false" Show_id="false" Show_Val="false" Pos="96,-136" rotation="0" hflip="1" vflip="1" label="Oscope-10" idLabPos="-90,-100" labelrot="0" valLabPos="-16,20" valLabRot="0" Basic_X="135 _px" Basic_Y="135 _px" BufferSize="600000" connectGnd="true" InputImped="10 MΩ" TimDiv="614400000" TimPos="-1194080337,-1194080337,-1194080337,-1194080337," VolDiv="1,1,1,1," Tunnels=",,,," Trigger="0" Filter="0.1 V" Trigger="0" AutoSC="4" Tracks="1" HideCh="false,false,false,false," VolPos="0,0,0,0," />
+
+<item itemtype="TextComponent" CircId="TextComponent-14" mainComp="false" Show_id="false" Show_Val="false" Pos="-108,-240" rotation="0" hflip="1" vflip="1" label="TextComponent-14o" idLabPos="-16,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Margin="5 _px" Border="1 _px" Color="#ffffdc" Opacity="1" Font="Helvetica [Cronyx]" Font_Color="#000080" Font_Size="10 _px" Fixed_Width="false" Text="Lương Thành Vỹ (2151280)" />
+
+<item itemtype="FreqMeter" CircId="FreqMeter-15" mainComp="false" Show_id="false" Show_Val="false" Pos="52,-36" rotation="0" hflip="1" vflip="1" label="FreqMeter-15" idLabPos="-32,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Filter="0.1 V" />
+
+<item itemtype="Node" CircId="Node-8" mainComp="false" Pos="-124,-68" />
+
+<item itemtype="Node" CircId="Node-13" mainComp="false" Pos="-12,12" />
+
+<item itemtype="Node" CircId="Node-16" mainComp="false" Pos="-12,-36" />
+
+<item itemtype="Connector" uid="Connector-5" startpinid="Led-2-rPin" endpinid="Ground-4-Gnd" pointList="68,12,88,12,88,28" />
+
+<item itemtype="Connector" uid="Connector-7" startpinid="Ground-6-Gnd" endpinid="Push-5-pinP0" pointList="-220,-60,-220,-68,-172,-68" />
+
+<item itemtype="Connector" uid="Connector-8" startpinid="Resistor-7-rPin" endpinid="Node-8-1" pointList="-124,-104,-124,-68" />
+
+<item itemtype="Connector" uid="Connector-9" startpinid="Push-5-switch0pinN" endpinid="Node-8-0" pointList="-140,-68,-124,-68" />
+
+<item itemtype="Connector" uid="Connector-10" startpinid="Node-8-2" endpinid="mega324-1-RST" pointList="-124,-68,-92,-68" />
+
+<item itemtype="Connector" uid="Connector-11" startpinid="Rail-9-outnod" endpinid="Resistor-7-lPin" pointList="-124,-172,-124,-136" />
+
+<item itemtype="Connector" uid="Connector-22" startpinid="Led-2-lPin" endpinid="Resistor-3-rPin" pointList="36,12,28,12" />
+
+<item itemtype="Connector" uid="Connector-24" startpinid="Resistor-3-lPin" endpinid="Node-13-0" pointList="-4,12,-12,12" />
+
+<item itemtype="Connector" uid="Connector-25" startpinid="Node-13-2" endpinid="mega324-1-PORTC0" pointList="-12,12,-28,12" />
+
+<item itemtype="Connector" uid="Connector-27" startpinid="FreqMeter-15-lPin" endpinid="Node-16-1" pointList="12,-36,-12,-36" />
+
+<item itemtype="Connector" uid="Connector-28" startpinid="Oscope-10-Pin0" endpinid="Node-16-0" pointList="8,-184,-12,-184,-12,-36" />
+
+<item itemtype="Connector" uid="Connector-29" startpinid="Node-16-2" endpinid="Node-13-1" pointList="-12,-36,-12,12" />
+
+</circuit>

@@ -1,6 +1,6 @@
 <ASSEMBLER_INFO>
  <VERSION>2.2.7</VERSION>
- <DEVICE>"ATmega324PA"</DEVICE>
+ <DEVICE>"ATmega324P"</DEVICE>
  <WORKING_DIR>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\Debug</WORKING_DIR>
  <INCLUDE_PATH>
   <DIR>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
@@ -22,10 +22,34 @@
   <FILE>Press_count_LCD_andLED_bar.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <START><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>14</LINE></START>
-  <NO_DEBOUNCE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>21</LINE></NO_DEBOUNCE>
-  <CHECK_PRESS><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>22</LINE></CHECK_PRESS>
-  <PRESSED><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>30</LINE></PRESSED>
-  <CHECK_RELEASE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>26</LINE></CHECK_RELEASE>
+  <GROUP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>35</LINE></GROUP>
+  <COUNTER_MSG><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>36</LINE></COUNTER_MSG>
+  <NUMBER><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>37</LINE></NUMBER>
+  <START><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>40</LINE></START>
+  <LCD_INIT><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>227</LINE></LCD_INIT>
+  <DISPLAY_GROUP_MEMBER_NAME><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>51</LINE></DISPLAY_GROUP_MEMBER_NAME>
+  <LCD_MOVE_CURSOR><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>154</LINE></LCD_MOVE_CURSOR>
+  <LCD_SEND_STRING><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>204</LINE></LCD_SEND_STRING>
+  <NUMBER_ON_LCD><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>98</LINE></NUMBER_ON_LCD>
+  <NO_DEBOUNCE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>70</LINE></NO_DEBOUNCE>
+  <CHECK_PRESS><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>71</LINE></CHECK_PRESS>
+  <PRESSED><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>80</LINE></PRESSED>
+  <CHECK_RELEASE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>75</LINE></CHECK_RELEASE>
+  <DELAY_10ms><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>347</LINE></DELAY_10ms>
+  <DIVISION><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>137</LINE></DIVISION>
+  <LCD_SEND_COMMAND><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>313</LINE></LCD_SEND_COMMAND>
+  <LCD_SEND_CHAR><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>178</LINE></LCD_SEND_CHAR>
+  <DIVISION_LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>142</LINE></DIVISION_LOOP>
+  <DIVISION_STOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>149</LINE></DIVISION_STOP>
+  <LCD_MOVE_CURSOR_SECOND><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>164</LINE></LCD_MOVE_CURSOR_SECOND>
+  <LCD_MOVE_CURSOR_EXIT><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>171</LINE></LCD_MOVE_CURSOR_EXIT>
+  <LCD_SEND_DATA><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>282</LINE></LCD_SEND_DATA>
+  <LCD_SEND_STRING_LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>212</LINE></LCD_SEND_STRING_LOOP>
+  <LCD_SEND_STRING_DONE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>219</LINE></LCD_SEND_STRING_DONE>
+  <LCD_WAIT_BUSY><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>249</LINE></LCD_WAIT_BUSY>
+  <LCD_WAIT_BUSY_LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>257</LINE></LCD_WAIT_BUSY_LOOP>
+  <L2><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>349</LINE></L2>
+  <L1><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>350</LINE></L1>
+  <L0><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Press_count_LCD_andLED_bar\Press_count_LCD_andLED_bar\main.asm</FILE><LINE>351</LINE></L0>
  </LABELS>
 </ASSEMBLER_INFO>

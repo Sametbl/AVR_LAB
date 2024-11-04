@@ -1,6 +1,6 @@
 <ASSEMBLER_INFO>
  <VERSION>2.2.7</VERSION>
- <DEVICE>"ATmega324PA"</DEVICE>
+ <DEVICE>"ATmega324P"</DEVICE>
  <WORKING_DIR>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_5\Square_wave_1KHz_duty_cycle_25%\Square_wave_1Khz_duty_cycle_\Square_wave_1Khz_duty_cycle_\Debug</WORKING_DIR>
  <INCLUDE_PATH>
   <DIR>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>

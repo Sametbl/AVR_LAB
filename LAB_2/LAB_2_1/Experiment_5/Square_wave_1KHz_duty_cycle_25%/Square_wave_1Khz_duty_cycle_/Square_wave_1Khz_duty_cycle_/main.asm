@@ -11,8 +11,8 @@
 ; f = 1 KHz  ==> T = 1 ms = 8000 cycles
 
 .EQU      TCCR0A_value  =  0b00100001    ; {COM0B1, COM0B0} = 2'b10
-.EQU      TCCR0B_value  =  0b00001011    ; {WGM02, WGM01, WGM 00} = 3'b101
-								         ; {CS02,  CS01,  CS00}   = 3'b010
+.EQU      TCCR0B_value  =  0b00001011    ; {WGM02, WGM01, WGM 00} = 3'b101, Prescale = 8
+								         ; {CS02,  CS01,  CS00}   = 3'b011
 
 ; Duty cycle = 100 * (256 - OCR)/256 
 .EQU      OCR0A_value  =  62
@@ -34,10 +34,10 @@ INIT_TIMER0:
 			 OUT   TCCR0A, R16						; SETUP TCCR0A 
 			 OUT   TCCR0B, R17						; SETUP TCCR0B 
 
-			 LDI   R16,    OCR0A_value  
-			 OUT   OCR0A,  R16						; OCRA = 
+			 LDI   R16,    OCR0A_value				; duty cycle = OCR0A_value/256
+			 OUT   OCR0A,  R16						 
 
 			 LDI   R16,    OCR0B_value  
-			 OUT   OCR0B,  R16						; OCRB =  
+			 OUT   OCR0B,  R16						; frequency of OC0B = OCR0B * Prescale = 15 * 64 = 960 = 1 KHz
 
 			 RET

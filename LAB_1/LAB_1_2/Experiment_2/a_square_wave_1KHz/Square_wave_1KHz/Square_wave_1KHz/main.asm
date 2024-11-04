@@ -9,15 +9,14 @@
 
 ; The internal clock of atmega324PA is 8MHz   => Each cycle = 0.125 us
 ; f = 1KHz  => T = 1 ms
-; => We need 0.5 ms delay  =  4000
+; => We need 1 ms delay  =  8000
+; 1 ms   = 8000 cyles        => A = 1, B = 6, C = 205
 
 .ORG 00
-
 .EQU   A = 1
-.EQU   B = 5
-.EQU   C = 121
+.EQU   B = 6
+.EQU   C = 205
 ; Total cycles of "DELAY" subroutine = 3ABC + 3BC + 3C + 6
-; MAX delay = 49 939 971 cycles
 
 
 MAIN:
@@ -25,9 +24,9 @@ MAIN:
 				   CBI     PORTA, 0     ; Clear PA0
 
 SQUARE_WAVE:       SBI     PORTA, 0     ; PA0 on
-                   RCALL   DELAY        ; Delay 0.5 ms
+                   RCALL   DELAY        ; Delay 1 ms
 				   CBI     PORTA, 0     ; PA0 off
-				   RCALL   DELAY        ; Delay 0.5 ms
+				   RCALL   DELAY        ; Delay 1 ms
 				   RJMP    SQUARE_WAVE
 	
 

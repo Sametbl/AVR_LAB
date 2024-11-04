@@ -1,0 +1,30 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega324P"</DEVICE>
+ <WORKING_DIR>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_1\Timer_1_Interrupt_Toggle\Timer_1_Interrupt_Toggle\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>D:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_1\Timer_1_Interrupt_Toggle\Timer_1_Interrupt_Toggle\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m324padef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_1\Timer_1_Interrupt_Toggle\Timer_1_Interrupt_Toggle\Debug\Timer_1_Interrupt_Toggle.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>Timer_1_Interrupt_Toggle.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>Timer_1_Interrupt_Toggle.map</FILE>
+  <FILE>Timer_1_Interrupt_Toggle.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <MAIN><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_1\Timer_1_Interrupt_Toggle\Timer_1_Interrupt_Toggle\main.asm</FILE><LINE>15</LINE></MAIN>
+  <ISR_TIMER1_OF><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_1\Timer_1_Interrupt_Toggle\Timer_1_Interrupt_Toggle\main.asm</FILE><LINE>59</LINE></ISR_TIMER1_OF>
+  <TIMER1_INIT><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_1\Timer_1_Interrupt_Toggle\Timer_1_Interrupt_Toggle\main.asm</FILE><LINE>45</LINE></TIMER1_INIT>
+  <INF_LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_1\Timer_1_Interrupt_Toggle\Timer_1_Interrupt_Toggle\main.asm</FILE><LINE>28</LINE></INF_LOOP>
+ </LABELS>
+</ASSEMBLER_INFO>

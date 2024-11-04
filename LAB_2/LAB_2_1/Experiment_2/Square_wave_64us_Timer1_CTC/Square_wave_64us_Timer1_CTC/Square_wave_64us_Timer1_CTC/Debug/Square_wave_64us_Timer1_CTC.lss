@@ -1,22 +1,22 @@
 
-AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_2\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\main.asm Sun Oct 20 15:14:20 2024
+AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_2\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\main.asm Mon Oct 28 22:10:39 2024
 
 [builtin](2): Including file 'D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m324padef.inc'
 [builtin](2): Including file 'D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m324padef.inc'
                                  
                                  ;
                                  
-                                 ;***** Created: 2011-02-09 12:03 ******* Source: ATmega324PA.xml *********
+                                 ;***** Created: 2011-02-09 12:03 ******* Source: ATmega324P.xml **********
                                  ;*************************************************************************
                                  ;* A P P L I C A T I O N   N O T E   F O R   T H E   A V R   F A M I L Y
                                  ;* 
                                  ;* Number            : AVR000
-                                 ;* File Name         : "m324PAdef.inc"
-                                 ;* Title             : Register/Bit Definitions for the ATmega324PA
+                                 ;* File Name         : "m324Pdef.inc"
+                                 ;* Title             : Register/Bit Definitions for the ATmega324P
                                  ;* Date              : 2011-02-09
                                  ;* Version           : 2.35
                                  ;* Support E-mail    : avr@atmel.com
-                                 ;* Target MCU        : ATmega324PA
+                                 ;* Target MCU        : ATmega324P
                                  ;* 
                                  ;* DESCRIPTION
                                  ;* When including this file in the assembly program file, all I/O register 
@@ -44,18 +44,18 @@ AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_2\Square
                                  ;* ...                         ;otherwise do something else
                                  ;*************************************************************************
                                  
-                                 #ifndef _M324PADEF_INC_
-                                 #define _M324PADEF_INC_
+                                 #ifndef _M324PDEF_INC_
+                                 #define _M324PDEF_INC_
                                  
                                  
                                  #pragma partinc 0
                                  
                                  ; ***** SPECIFY DEVICE ***************************************************
-                                 .device ATmega324PA
-                                 #pragma AVRPART ADMIN PART_NAME ATmega324PA
+                                 .device ATmega324P
+                                 #pragma AVRPART ADMIN PART_NAME ATmega324P
                                  .equ	SIGNATURE_000	= 0x1e
                                  .equ	SIGNATURE_001	= 0x95
-                                 .equ	SIGNATURE_002	= 0x11
+                                 .equ	SIGNATURE_002	= 0x08
                                  
                                  #pragma AVRPART CORE CORE_VERSION V2E
                                  
@@ -1147,7 +1147,7 @@ AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_2\Square
                                  
                                  .equ	INT_VECTORS_SIZE	= 62	; size in words
                                  
-                                 #endif  /* _M324PADEF_INC_ */
+                                 #endif  /* _M324PDEF_INC_ */
                                  
                                  ; ***** END OF FILE ******************************************************
                                  
@@ -1159,35 +1159,15 @@ AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_2\Square
                                  
                                  
                                  
+                                 ; Internal clk = 8 MHz
+                                 .EQU   OCR1_val = 220     ; 1 to 65535      -2 cycles due to RJMP LOOP
+                                 .EQU   TCCR1B_mode = 0b00001001
+                                 
                                  
 000000 ef0f                      START:			LDI    R16, 0xFF
 000001 b90a                      				OUT    DDRD,     R16      ; Set OC1A  =  PD5 as Output   ( But it different pin in SimulIDE)
 000002 940e 0005                 LOOP:			CALL   TIMER1_DELAY       ; {COM1A1, COM1A0} = 2'b01 ==> Toggle OC1A   when TCNT1 = OCR1A
 000004 cffd                      				RJMP   LOOP
-                                 
-                                 
-                                 
-                                 
-                                 ; Last 3 bits of TCCR0B = CS[2:0]
-                                 ; CS[2:0] = 3'b000  ==> Timer Stop
-                                 ; CS[2:0] = 3'b001  ==> Prescale = 1
-                                 ; CS[2:0] = 3'b010  ==> Prescale = 8
-                                 ; CS[2:0] = 3'b011  ==> Prescale = 64
-                                 ; CS[2:0] = 3'b100  ==> Prescale = 256
-                                 ; CS[2:0] = 3'b101  ==> Prescale = 1024
-                                 ; CS[2:0] = 3'b110  ==> External clk, Negedge
-                                 ; CS[2:0] = 3'b111  ==> External clk, Posedge
-                                 
-                                 
-                                 ; Internal clk = 8 MHz
-                                 ; 1 ms   = 8 000 cycels     => Prescale = 1   , OCR_val = 7966    + 1 
-                                 ; 10 ms  = 80 000 cycels    => Prescale = 8   , OCR_val = 9995    + 1
-                                 ; 100 ms = 800 000 cycels   => Prescale = 64  , OCR_val = 12498   + 1
-                                 ; 1 s    = 8 000 000 cycels => Prescale = 256 , OCR_val = 31249   - 1
-                                 
-                                 .EQU   OCR1_val = 220     ; 1 to 65535      -2 cycles due to RJMP LOOP
-                                 .EQU   TCCR1B_mode = 0b00001001
-                                 
                                  
                                  TIMER1_DELAY:								    ; (+3) For CALL to here  
 000005 e000                      				 LDI    R16,     0				; (+1) Clear Timer
@@ -1228,7 +1208,7 @@ counted separately from r26..r31 here.
 
 .dseg memory usage only counts static data declared with .byte
 
-"ATmega324PA" register use summary:
+"ATmega324P" register use summary:
 x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
 r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
 r13:   0 r14:   0 r15:   0 r16:  17 r17:   0 r18:   0 r19:   0 r20:   0 
@@ -1236,7 +1216,7 @@ r21:   0 r22:   0 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0
 r29:   0 r30:   0 r31:   0 
 Registers used: 1 out of 35 (2.9%)
 
-"ATmega324PA" instruction use summary:
+"ATmega324P" instruction use summary:
 .lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
 andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
 brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
@@ -1258,7 +1238,7 @@ sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   7
 sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
 Instructions used: 7 out of 113 (6.2%)
 
-"ATmega324PA" memory use summary [bytes]:
+"ATmega324P" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
 [.cseg] 0x000000 0x00003c     60      0     60   32768   0.2%

@@ -1,6 +1,6 @@
 <ASSEMBLER_INFO>
  <VERSION>2.2.7</VERSION>
- <DEVICE>"ATmega324PA"</DEVICE>
+ <DEVICE>"ATmega324P"</DEVICE>
  <WORKING_DIR>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_2\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\Debug</WORKING_DIR>
  <INCLUDE_PATH>
   <DIR>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
@@ -22,9 +22,9 @@
   <FILE>Square_wave_64us_Timer1_CTC.lss</FILE>
  </OUTPUT_FILES>
  <LABELS>
-  <START><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_2\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\main.asm</FILE><LINE>11</LINE></START>
-  <LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_2\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\main.asm</FILE><LINE>13</LINE></LOOP>
-  <TIMER1_DELAY><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_2\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\main.asm</FILE><LINE>40</LINE></TIMER1_DELAY>
-  <AGAIN><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_2\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\main.asm</FILE><LINE>55</LINE></AGAIN>
+  <START><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_2\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\main.asm</FILE><LINE>15</LINE></START>
+  <LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_2\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\main.asm</FILE><LINE>17</LINE></LOOP>
+  <TIMER1_DELAY><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_2\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\main.asm</FILE><LINE>20</LINE></TIMER1_DELAY>
+  <AGAIN><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_2\LAB_2_1\Experiment_2\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\Square_wave_64us_Timer1_CTC\main.asm</FILE><LINE>35</LINE></AGAIN>
  </LABELS>
 </ASSEMBLER_INFO>

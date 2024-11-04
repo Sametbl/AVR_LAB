@@ -1,10 +1,10 @@
 
-AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\a_square_wave_1KHz\Square_wave_1KHz\Square_wave_1KHz\main.asm Thu Oct 17 17:03:44 2024
+AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\a_square_wave_1KHz\Square_wave_1KHz\Square_wave_1KHz\main.asm Tue Oct 29 22:46:29 2024
 
 
 EQU  SIGNATURE_000 0000001e
 EQU  SIGNATURE_001 00000095
-EQU  SIGNATURE_002 00000011
+EQU  SIGNATURE_002 00000008
 EQU  UDR1         000000ce
 EQU  UBRR1L       000000cc
 EQU  UBRR1H       000000cd
@@ -827,8 +827,8 @@ EQU  UDRE1addr    0000003a
 EQU  UTXC1addr    0000003c
 EQU  INT_VECTORS_SIZE 0000003e
 EQU  A            00000001
-EQU  B            00000005
-EQU  C            00000079
+EQU  B            00000006
+EQU  C            000000cd
 CSEG MAIN         00000000
 CSEG SQUARE_WAVE  00000002
 CSEG DELAY        00000007

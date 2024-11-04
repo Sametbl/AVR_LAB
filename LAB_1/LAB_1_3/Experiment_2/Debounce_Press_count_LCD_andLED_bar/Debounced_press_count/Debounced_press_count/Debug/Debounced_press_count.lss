@@ -1,22 +1,24 @@
 
-AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm Mon Oct 21 15:36:27 2024
+AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm Mon Nov 04 15:44:38 2024
 
 [builtin](2): Including file 'D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m324padef.inc'
+I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm(112): warning: Register r27 already defined by the .DEF directive
+I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Debounce_Press_count_LCD_andLED_bar\Debounced_press_count\Debounced_press_count\main.asm(113): warning: Register r26 already defined by the .DEF directive
 [builtin](2): Including file 'D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m324padef.inc'
                                  
                                  ;
                                  
-                                 ;***** Created: 2011-02-09 12:03 ******* Source: ATmega324PA.xml *********
+                                 ;***** Created: 2011-02-09 12:03 ******* Source: ATmega324P.xml **********
                                  ;*************************************************************************
                                  ;* A P P L I C A T I O N   N O T E   F O R   T H E   A V R   F A M I L Y
                                  ;* 
                                  ;* Number            : AVR000
-                                 ;* File Name         : "m324PAdef.inc"
-                                 ;* Title             : Register/Bit Definitions for the ATmega324PA
+                                 ;* File Name         : "m324Pdef.inc"
+                                 ;* Title             : Register/Bit Definitions for the ATmega324P
                                  ;* Date              : 2011-02-09
                                  ;* Version           : 2.35
                                  ;* Support E-mail    : avr@atmel.com
-                                 ;* Target MCU        : ATmega324PA
+                                 ;* Target MCU        : ATmega324P
                                  ;* 
                                  ;* DESCRIPTION
                                  ;* When including this file in the assembly program file, all I/O register 
@@ -44,18 +46,18 @@ AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Deboun
                                  ;* ...                         ;otherwise do something else
                                  ;*************************************************************************
                                  
-                                 #ifndef _M324PADEF_INC_
-                                 #define _M324PADEF_INC_
+                                 #ifndef _M324PDEF_INC_
+                                 #define _M324PDEF_INC_
                                  
                                  
                                  #pragma partinc 0
                                  
                                  ; ***** SPECIFY DEVICE ***************************************************
-                                 .device ATmega324PA
-                                 #pragma AVRPART ADMIN PART_NAME ATmega324PA
+                                 .device ATmega324P
+                                 #pragma AVRPART ADMIN PART_NAME ATmega324P
                                  .equ	SIGNATURE_000	= 0x1e
                                  .equ	SIGNATURE_001	= 0x95
-                                 .equ	SIGNATURE_002	= 0x11
+                                 .equ	SIGNATURE_002	= 0x08
                                  
                                  #pragma AVRPART CORE CORE_VERSION V2E
                                  
@@ -1147,7 +1149,7 @@ AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Deboun
                                  
                                  .equ	INT_VECTORS_SIZE	= 62	; size in words
                                  
-                                 #endif  /* _M324PADEF_INC_ */
+                                 #endif  /* _M324PDEF_INC_ */
                                  
                                  ; ***** END OF FILE ******************************************************
                                  
@@ -1167,58 +1169,385 @@ AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_2\Deboun
                                  
                                  
                                  ; PORTA  = LCD
-                                 ; PORTB  = LED bar
+                                 ; PORTD  = LED bar
                                  ; PORTC  = Switch (PC0)
                                  ; The button/switch is ACTIVE LOW
                                  
-000000 9838                      START:			CBI    DDRC,  0              ; Config PC0 as Input
-000001 ef0f                      				LDI    R16,   0xFF           ; Config POPRTB as Output
-000002 b904                      				OUT    DDRB,  R16
+                                 .ORG 00
+                                 .EQU    DDR_IN   = DDRC
+                                 .EQU    PORT_IN  = PORTC
+                                 .EQU    PIN_IN   = PINC
                                  
-000003 e010                      				LDI    R17,   0x00			 ; Clear R17 for Counter
-000004 b905                      				OUT    PORTB, R16			 ; Also Clear PORTB
+                                 .EQU    LED_DDR_OUT  = DDRD
+                                 .EQU    LED_PORT_OUT = PORTD
                                  
-                                 NO_DEBOUNCE:    
-000005 9930                      CHECK_PRESS:	SBIC   PINC,  0              ; When not press, PC0 = 1
-000006 cffe                      				RJMP   CHECK_PRESS  
+                                 .EQU	LCDPORT = PORTA  ; SET SIGNAL PORT REG TO PORTA
+                                 .EQU	LCDPORTDIR = DDRA   ; SET SIGNAL PORT DIR REG TO PORTA
+                                 .EQU	LCDPORTPIN = PINA	; SET CLEAR SIGNAL PORT PIN REG TO PORTA
+                                 .EQU	LCD_RS	= PINA0
+                                 .EQU	LCD_RW	= PINA1
+                                 .EQU	LCD_EN	= PINA2
+                                 .EQU	LCD_D7	= PINA7
+                                 .EQU	LCD_D6	= PINA6
+                                 .EQU	LCD_D5	= PINA5
+                                 .EQU	LCD_D4	= PINA4
                                  
-000007 d00f                      				RCALL  DELAY_50ms
-000008 9930                      				SBIC   PINC,  0              ; Second check
-000009 cffb                      				RJMP   CHECK_PRESS  
-                                 
-00000a d00c                      				RCALL  DELAY_50ms
-00000b 9930                      				SBIC   PINC,  0              ; Third check
-00000c cff8                      				RJMP   CHECK_PRESS  
-                                 
-00000d d009                      				RCALL  DELAY_50ms
-00000e 9930                      				SBIC   PINC,  0              ; Fourth check
-00000f cff5                      				RJMP   CHECK_PRESS  
-                                 
-000010 c003                      				RJMP   PRESSED               ; It is legit after 4 checks
+                                 .DEF	LCDDATA = R16
                                  
                                  
-000011 9b30                      CHECK_RELEASE:  SBIS   PINC,  0              ; When holding/pressing the button, PC0 = 0
-000012 cffe                      				RJMP   CHECK_RELEASE
-000013 cff1                      				RJMP   CHECK_PRESS           ; When released, check for the next press (should be delayed before RJMP)
-                                                 
-000014 9513                      PRESSED:		INC    R17                   ; Increment counter by 1
-000015 b915                      				OUT    PORTB,   R17          ; Display new counter on LED bar
-000016 cffa                      				RJMP   CHECK_RELEASE         ; Check when the button is release
+000000 544c
+000001 562e
+000002 2059
+000003 2026
+000004 5454
+000005 542e
+000006 414f
+000007 004e                      GROUP:       .DB    "LT.VY & TT.TOAN", 0
+000008 4f43
+000009 4e55
+00000a 4554
+00000b 3a52
+00000c 0020                      COUNTER_MSG: .DB    "COUNTER: ", 0
+00000d 3130
+00000e 3332
+00000f 3534
+000010 3736
+000011 3938                      NUMBER:      .DB    "0123456789"
                                  
-                                 DELAY_50ms:
-000017 e063                      				LDI   R22, 3				 ; These counter values are calculated like in ex2_LAB1_2                       
-000018 eb52                      L2:				LDI   R21, 178       
-000019 eb4b                      L1:				LDI   R20, 187    
-00001a 954a                      L0:				DEC   R20       
-00001b f7f1                      				BRNE  L0          
-                                 								 
-00001c 955a                      				DEC   R21        
-00001d f7d9                      				BRNE  L1         
-                                 								 
-00001e 956a                      				DEC   R22       
-00001f f7c1                      				BRNE  L2  					
-000020 9508                      				RET 
                                  
+000012 9838                      START:			CBI     DDR_IN,  0				; Config Button as Input
+000013 9a40                      				SBI     PORT_IN, 0				; Enable pull-up resistor
+                                 
+000014 ef0f                      				LDI     R16,     0xFF			; Config LED_BAR as Output
+000015 b90a                      				OUT     LED_DDR_OUT,  R16
+                                 
+000016 e010                      				LDI     R17,     0x00			; Clear R17 for Counter
+000017 b90b                      				OUT     LED_PORT_OUT, R16		; Also Clear LED_BAR output
+                                 
+000018 940e 00a1                 			    CALL    LCD_INIT				; Initialize LCD pinouts
+                                 
+                                 DISPLAY_GROUP_MEMBER_NAME:
+00001a e000                      				LDI     R16, 0					; 
+00001b e010                      				LDI     R17, 0
+00001c 940e 0071                 				CALL	LCD_MOVE_CURSOR 
+                                 
+00001e e0f0                      				LDI     ZH, HIGH(GROUP)        ; POINT TO THE INFORMATION THAT IS TO BE DISPLAYED
+00001f e0e0                      				LDI     ZL, LOW(GROUP)
+000020 940e 0092                 				CALL    LCD_SEND_STRING
+000022 e001                      				LDI		R16,1
+000023 e010                      				LDI		R17,0
+000024 940e 0071                 				CALL	LCD_MOVE_CURSOR 
+000026 e0f0                      				LDI     ZH, HIGH(COUNTER_MSG)        ; POINT TO THE INFORMATION THAT IS TO BE DISPLAYED
+000027 e0e8                      				LDI     ZL, LOW(COUNTER_MSG)
+000028 940e 0092                 				CALL    LCD_SEND_STRING
+                                 
+00002a 2422                      				CLR R2
+00002b 940e 0042                 				CALL NUMBER_ON_LCD
+                                 
+00002d e010                      				LDI    R17,      0x00		   ; Clear R17 for Counter
+                                 
+                                 
+                                 DEBOUNCE:    
+00002e 9930                      CHECK_PRESS:	SBIC   PIN_IN,  0			; When not press, PC0 = 1
+00002f cffe                      				RJMP   CHECK_PRESS  
+                                 
+000030 d0cb                      				RCALL  DELAY_10ms
+000031 9930                      				SBIC   PIN_IN,  0			; Second check
+000032 cffb                      				RJMP   CHECK_PRESS  
+                                 
+000033 d0c8                      				RCALL  DELAY_10ms
+000034 9930                      				SBIC   PIN_IN,  0			; Third check
+000035 cff8                      				RJMP   CHECK_PRESS  
+                                 
+000036 c003                      				RJMP   PRESSED				; It is legit after 4 checks
+                                 
+                                 
+000037 9b30                      CHECK_RELEASE:  SBIS   PIN_IN,  0			; When holding/pressing the button, PC0 = 0
+000038 cffe                      				RJMP   CHECK_RELEASE
+000039 cff4                      				RJMP   CHECK_PRESS			; When released, check for the next press (should be delayed before RJMP)
+                                    
+                                 
+00003a 9513                      PRESSED:		INC    R17					; Increment counter by 1
+00003b b91b                      				OUT    LED_PORT_OUT,   R17	; Display new counter on LED bar
+00003c 2e21                      				MOV    R2, R17
+00003d 940e 0042                 				CALL   NUMBER_ON_LCD
+00003f 940e 00fc                 				CALL   DELAY_10ms
+000041 cff5                      				RJMP   CHECK_RELEASE		; Check when the button is release
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 .DEF    Dividend  = R27
+                                 .DEF    Divisor   = R26
+                                 .DEF    Quotient  = R25
+                                 .DEF    Remainder = R24
+                                 
+                                 
+                                 ; Display number of R2 (8-bit, 0 to 155
+000042 931f                      NUMBER_ON_LCD:   PUSH  R17
+000043 922f                      				 PUSH  R2
+                                 
+000044 2db2                      				 MOV   Dividend,  R2			
+000045 e6a4                      				 LDI   Divisor,   100
+000046 d01e                      				 RCALL DIVISION
+000047 2e59                      				 MOV   R5,        Quotient		; 3rd digit
+                                 
+000048 2fb8                      				 MOV   Dividend,  Remainder
+000049 e0aa                      				 LDI   Divisor,   10
+00004a d01a                      				 RCALL DIVISION
+00004b 2e49                      				 MOV   R4,        Quotient		; 2nd digit
+00004c 2e38                      				 MOV   R3,        Remainder		; 1st digit
+                                 
+00004d ec0b                      				 LDI   R16, 0xCB				; Set cursor to Row = , Col =
+00004e 940e 00e7                 				 CALL  LCD_SEND_COMMAND
+000050 2c25                      				 MOV   R2, R5					
+000051 940e 0081                 				 CALL  LCD_SEND_CHAR		; Diplay 1 digit store in R2
+                                 
+                                 
+000053 ec0c                      				 LDI   R16, 0xCC				; Set cursor to Row = , Col =
+000054 940e 00e7                 				 CALL  LCD_SEND_COMMAND
+000056 2c24                      				 MOV   R2, R4
+000057 940e 0081                 				 CALL  LCD_SEND_CHAR		; Diplay 1 digit store in R2
+                                 
+                                 
+000059 ec0d                      				 LDI   R16, 0xCD				; Set cursor to Row = , Col =
+00005a 940e 00e7                 				 CALL  LCD_SEND_COMMAND
+00005c 2c23                      				 MOV   R2, R3
+00005d 940e 0081                 				 CALL  LCD_SEND_CHAR		; Diplay 1 digit store in R2
+                                 
+00005f e00c                      				 LDI   R16, 0x0C				; Turn of cursor
+000060 940e 00e7                 				 CALL  LCD_SEND_COMMAND
+000062 902f                      				 POP   R2
+000063 911f                      				 POP   R17
+000064 9508                      				 RET
+                                 
+                                 
+                                 
+000065 93bf                      DIVISION:      PUSH  Dividend		; R27 = Dividend
+000066 93af                      			   PUSH  Divisor		; R26 = Divisor
+000067 2799                      			   CLR   Quotient		; To count "quotient"
+000068 2788                      			   CLR   Remainder
+                                 
+                                 DIVISION_LOOP: 			   
+000069 2f8b                      			   MOV   Remainder, Dividend	; Save the last Remainder (Useful for the last iteration)
+00006a 1bba                      			   SUB   Dividend,  Divisor		; Y - X 
+00006b f012                      			   BRMI  DIVISION_STOP			; If negative, exit
+00006c 9593                      			   INC   Quotient
+00006d cffb                      			   RJMP  DIVISION_LOOP
+                                 
+00006e 91af                      DIVISION_STOP: POP   Divisor
+00006f 91bf                      			   POP   Dividend
+000070 9508                      			   RET
+                                 
+                                 
+                                 LCD_MOVE_CURSOR:
+                                 
+000071 3000                      			CPI		R16,   0				     ; Check if first row
+000072 f431                      			BRNE	LCD_MOVE_CURSOR_SECOND
+000073 701f                      			ANDI	R17,   0x0F                  ; Set the State of RS and RW pins 
+000074 6810                      			ORI		R17,   0x80                  ; R17 = DDRAM location of beginning of first Row
+000075 2f01                      			MOV		R16,   R17                   ; Save that location to R16
+000076 940e 00e7                 			CALL    LCD_SEND_COMMAND		     ; Send command to LCD to move cursor 
+000078 9508                      			RET
+                                 
+                                 LCD_MOVE_CURSOR_SECOND:
+000079 3001                      			CPI		R16,   1					 ; Check if second row
+00007a f429                      			BRNE	LCD_MOVE_CURSOR_EXIT		 ; ELSE EXIT 
+00007b 701f                      			ANDI	R17,   0x0F					 ; Set the State of RS and RW pins 
+00007c 6c10                      			ORI		R17,   0xC0					 ; R17 = DDRAM location of beginning of second Row
+00007d 2f01                      			MOV		R16,   R17					 ; Save that location to R16
+00007e 940e 00e7                 			CALL    LCD_SEND_COMMAND			 ; Send command to LCD to move cursor 
+                                 LCD_MOVE_CURSOR_EXIT:
+000080 9508                      		    RET		
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 LCD_SEND_CHAR:
+000081 93ff                          PUSH  ZH							; PRESERVE POINTER REGISTERS
+000082 93ef                          PUSH  ZL
+000083 930f                      	PUSH  LCDDATA
+000084 922f                      	PUSH  R2
+                                 	
+000085 e0f0                       	LDI   ZH, HIGH(NUMBER << 1)			; Point to the information that is to be displayed
+000086 e1ea                      	LDI   ZL, LOW (NUMBER << 1) 
+000087 0de2                          ADD   ZL, R2
+000088 2422                      	CLR   R2
+000089 1df2                      	ADC   ZH, R2
+00008a 9104                          LPM   LCDDATA,  Z					; GET A CHARACTER
+                                 
+00008b 940e 00d1                     CALL  LCD_SEND_DATA					; DISPLAY THE CHARACTER
+                                 
+00008d 902f                          POP   R2
+00008e 910f                      	POP	  LCDDATA
+00008f 91ef                          POP   ZL							; RESTORE POINTER REGISTERS
+000090 91ff                          POP   ZH
+000091 9508                          RET
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 LCD_SEND_STRING:
+000092 93ff                      			PUSH    ZH                           ; Preserve pointer registers
+000093 93ef                      			PUSH    ZL
+000094 930f                      			PUSH	LCDDATA
+                                 												
+000095 0fee                      			LSL     ZL                           ; LSL + ROL = Shift left for 16-bit Z reigster for the LPM instruction
+000096 1fff                      			ROL     ZH
+                                 
+                                 LCD_SEND_STRING_LOOP:							 ; Write the string of characters to DDRAM 
+000097 9105                      			LPM     LCDDATA,   Z+                ; Get a character
+000098 3000                      			CPI     LCDDATA,   0                 ; Check for end of string
+000099 f019                      			BREQ    LCD_SEND_STRING_DONE         ; If Null character ==> DONE
+00009a 940e 00d1                 			CALL    LCD_SEND_DATA                ; Display the character
+00009c cffa                      			RJMP    LCD_SEND_STRING_LOOP         ; Not DONE, send another character
+                                 
+                                 LCD_SEND_STRING_DONE:
+00009d 910f                      			POP		LCDDATA						 ; RESTORE POINTER REGISTERS
+00009e 91ef                      			POP     ZL                        
+00009f 91ff                      			POP     ZH
+0000a0 9508                      			RET
+                                 
+                                 
+                                 
+                                 LCD_INIT:
+0000a1 ef07                      			LDI    R16,   0b11110111			; Set PA7 -> PA4 as Output, PA2 -> PA0 as output
+0000a2 b901                      			OUT    LCDPORTDIR,  R16
+                                 									
+0000a3 940e 00fc                 			CALL   DELAY_10ms					; WAIT FOR LCD TO POWER UP
+0000a5 940e 00fc                 			CALL   DELAY_10ms
+                                 											
+0000a7 e002                      			LDI    R16,   0x02					; FUNCTION SET: 4-bit, 2 lines, 5x7 dot interface
+0000a8 940e 00e7                 			CALL   LCD_SEND_COMMAND
+                                 
+0000aa e208                      			LDI    R16,   0x28					; FUNCTION SET: enable 5x7 mode for chars 
+0000ab 940e 00e7                 			CALL   LCD_SEND_COMMAND
+0000ad e00e                      			LDI    R16,   0x0E					; DISPLAY CONTROL: DISPLAY ON, CURSOR ON
+0000ae 940e 00e7                 			CALL   LCD_SEND_COMMAND
+0000b0 e001                      			LDI    R16,   0x01					; Clear display and DDRAM contents
+0000b1 940e 00e7                 			CALL   LCD_SEND_COMMAND
+0000b3 e800                      			LDI    R16,   0x80					; Return Cursor to the beginning
+0000b4 940e 00e7                 			CALL   LCD_SEND_COMMAND
+0000b6 9508                      			RET
+                                 
+                                 
+                                 
+                                 LCD_WAIT_BUSY:
+0000b7 930f                      			PUSH   R16
+0000b8 e007                      			LDI    R16,   0b00000111			; Set PA7-PA4 as Input, PA2-PA0 as Output
+0000b9 b901                      			OUT    LCDPORTDIR,  R16
+0000ba ef02                      			LDI	   R16,   0b11110010			; Set RS = 0, RW = 1 for read the busy flag
+0000bb b902                      			OUT	   LCDPORT,     R16
+0000bc 0000                      			NOP
+                                 
+                                 LCD_WAIT_BUSY_LOOP:
+0000bd 9a12                      			SBI    LCDPORT,  LCD_EN				; Pulse LCD_EN and read the flag
+0000be 0000                      			NOP
+0000bf 0000                      			NOP
+0000c0 b100                      			IN     R16,     LCDPORTPIN
+0000c1 9812                      			CBI    LCDPORT,  LCD_EN
+0000c2 0000                      			NOP
+                                 
+0000c3 9a12                      			SBI    LCDPORT,  LCD_EN             ; Pulse LCD_EN again
+0000c4 0000                      			NOP
+0000c5 0000                      			NOP
+0000c6 9812                      			CBI    LCDPORT,  LCD_EN
+0000c7 0000                      			NOP
+                                 
+0000c8 7800                      			ANDI   R16,   0x80                  ; Extract PA7 = busy flag
+0000c9 3800                      			CPI	   R16,   0x80                  ; Check if busy flag is set 
+0000ca f391                      			BREQ   LCD_WAIT_BUSY_LOOP
+                                 
+0000cb ef07                      			LDI    R16,   0b11110111			; Set PA7-PA4 as Output, PA2-PA0 as Output
+0000cc b901                      			OUT    LCDPORTDIR, R16
+0000cd e000                      			LDI	   R16,   0b00000000			; Set RS = 0, RW = 1 for read the busy flag
+0000ce b902                      			OUT	   LCDPORT,    R16	
+0000cf 910f                      			POP	   R16
+0000d0 9508                      			RET
+                                 
+                                 LCD_SEND_DATA:
+0000d1 931f                      			PUSH   R17
+0000d2 940e 00b7                 			CALL   LCD_WAIT_BUSY				; Check if lcd is busy
+0000d4 2f10                      			MOV	   R17,   R16					; Save the command				
+                                 														
+0000d5 7f10                      			ANDI   R17,   0xF0					; Extact the Upper nibble of Command
+0000d6 6011                      			ORI	   R17,   0x01					; Also Set RS = 1 and RW = 0 to write to lcd
+                                 		
+0000d7 b912                      			OUT    LCDPORT,  R17				; Send data to LCD
+0000d8 0000                      			NOP
+                                 			
+0000d9 9a12                      			SBI    LCDPORT,  LCD_EN		    	; Pulse ENABLE pin
+0000da 0000                      			NOP
+0000db 9812                      			CBI    LCDPORT,  LCD_EN
+0000dc 0000                      			NOP									; DELAY FOR COMMAND EXECUTION
+                                 
+0000dd 9502                      			SWAP   R16							; Swap Higher Nibble to Lower Nibble of Commmand
+0000de 7f00                      			ANDI   R16,  0xF0                   ; And extract the Lower Nibble of the Command similarly
+0000df 6001                      			ORI	   R16,  0x01					; Also Set RS = 1 and RW = 0 to write to lcd
+                                 		
+                                 
+0000e0 b902                      			OUT    LCDPORT,  R16				; Send command to LCD
+                                 
+0000e1 0000                      			NOP									; Pulse ENABLE pin
+0000e2 9a12                      			SBI    LCDPORT,  LCD_EN
+0000e3 0000                      			NOP
+0000e4 9812                      			CBI    LCDPORT,  LCD_EN
+0000e5 911f                      			POP    R17
+0000e6 9508                      			RET
+                                 
+                                 
+                                 LCD_SEND_COMMAND:
+0000e7 931f                      			PUSH   R17
+0000e8 940e 00b7                 			CALL   LCD_WAIT_BUSY				; Check if LCD is busy 
+0000ea 2f10                      			MOV    R17,  R16					; Save the command	
+                                 		
+0000eb 7f10                      			ANDI   R17,  0xF0					; Extact the Upper nibble of Command
+                                 												; Also Set RS = 1 and RW = 0 to write to lcd
+                                 			
+0000ec b912                      			OUT    LCDPORT,  R17				; Send command to LCD
+0000ed 0000                      			NOP
+0000ee 0000                      			NOP
+                                 		
+0000ef 9a12                      			SBI    LCDPORT,  LCD_EN				; Pulse ENABLE pin
+0000f0 0000                      			NOP
+0000f1 0000                      			NOP
+0000f2 9812                      			CBI    LCDPORT,  LCD_EN
+                                 
+0000f3 9502                      			SWAP   R16							; Swap Higher Nibble to Lower Nibble of Commmand
+0000f4 7f00                      			ANDI   R16,  0xF0                   ; And extract the Lower Nibble of the Command similarly
+0000f5 b902                      			OUT    LCDPORT,  R16				; Send command to LCD
+                                 
+0000f6 9a12                      			SBI    LCDPORT,  LCD_EN			    ; Pulse ENABLE pin
+0000f7 0000                      			NOP
+0000f8 0000                      			NOP
+0000f9 9812                      			CBI	   LCDPORT,  LCD_EN
+0000fa 911f                      			POP	   R17
+                                 
+0000fb 9508                      			RET
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 DELAY_10MS:                  
+0000fc e16e                      		LDI   R22, 30                  
+0000fd ea5c                      L2:     LDI   R21, 172     
+0000fe e045                      L1:	    LDI   R20, 5   
+0000ff 954a                      L0:		DEC   R20        
+000100 f7f1                      		BRNE  L0      
+                                 		                
+000101 955a                      		DEC   R21    
+000102 f7d9                      		BRNE  L1        
+                                 		               
+000103 956a                      		DEC   R22    
+000104 f7c1                      		BRNE  L2  	
+                                 		               
+000105 9508                      		RET            
 
 
 RESOURCE USE INFORMATION
@@ -1235,41 +1564,41 @@ counted separately from r26..r31 here.
 
 .dseg memory usage only counts static data declared with .byte
 
-"ATmega324PA" register use summary:
-x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
-r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:   3 r17:   3 r18:   0 r19:   0 r20:   2 
-r21:   2 r22:   2 r23:   0 r24:   0 r25:   0 r26:   0 r27:   0 r28:   0 
-r29:   0 r30:   0 r31:   0 
-Registers used: 5 out of 35 (14.3%)
+"ATmega324P" register use summary:
+x  :   0 y  :   0 z  :   2 r0 :   0 r1 :   0 r2 :  13 r3 :   2 r4 :   2 
+r5 :   2 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
+r13:   0 r14:   0 r15:   0 r16:  49 r17:  26 r18:   0 r19:   0 r20:   2 
+r21:   2 r22:   2 r23:   0 r24:   4 r25:   4 r26:   5 r27:   6 r28:   0 
+r29:   0 r30:   9 r31:   9 
+Registers used: 16 out of 35 (45.7%)
 
-"ATmega324PA" instruction use summary:
-.lds  :   0 .sts  :   0 adc   :   0 add   :   0 adiw  :   0 and   :   0 
-andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   0 break :   0 breq  :   0 brge  :   0 brhc  :   0 
-brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :   3 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   1 cbr   :   0 
-clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
+"ATmega324P" instruction use summary:
+.lds  :   0 .sts  :   0 adc   :   1 add   :   1 adiw  :   0 and   :   0 
+andi  :   7 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :   2 brge  :   0 brhc  :   0 
+brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   1 
+brne  :   5 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :  28 cbi   :   7 cbr   :   0 
+clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   4 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
-cpi   :   0 cpse  :   0 dec   :   3 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   1 jmp   :   0 
-ld    :   0 ldd   :   0 ldi   :   5 lds   :   0 lpm   :   0 lsl   :   0 
-lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   0 or    :   0 ori   :   0 out   :   3 pop   :   0 
-push  :   0 rcall :   3 ret   :   1 reti  :   0 rjmp  :   8 rol   :   0 
-ror   :   0 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   4 sbis  :   1 
+cpi   :   4 cpse  :   0 dec   :   3 eor   :   0 fmul  :   0 fmuls :   0 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :   1 inc   :   2 jmp   :   0 
+ld    :   0 ldd   :   0 ldi   :  32 lds   :   0 lpm   :   3 lsl   :   1 
+lsr   :   0 mov   :  14 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
+neg   :   0 nop   :  18 or    :   0 ori   :   4 out   :  12 pop   :  14 
+push  :  14 rcall :   4 ret   :  11 reti  :   0 rjmp  :   9 rol   :   1 
+ror   :   0 sbc   :   0 sbci  :   0 sbi   :   7 sbic  :   3 sbis  :   1 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
-sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 11 out of 113 (9.7%)
+sub   :   1 subi  :   0 swap  :   2 tst   :   0 wdr   :   0 
+Instructions used: 31 out of 113 (27.4%)
 
-"ATmega324PA" memory use summary [bytes]:
+"ATmega324P" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000042     66      0     66   32768   0.2%
+[.cseg] 0x000000 0x00020c    488     36    524   32768   1.6%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 
-Assembly complete, 0 errors, 0 warnings
+Assembly complete, 0 errors, 2 warnings

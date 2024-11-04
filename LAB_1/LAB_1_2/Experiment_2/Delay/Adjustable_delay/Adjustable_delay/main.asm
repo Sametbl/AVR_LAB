@@ -19,9 +19,9 @@
 ; 50  ms = 400 000   cycles  => A = 3 , B = 178, C = 187
 .ORG 00
 
-.EQU   A = 30
-.EQU   B = 172
-.EQU   C = 5
+.EQU   A = 11
+.EQU   B = 167
+.EQU   C = 133
 
 MAIN_NPC:
         RCALL DELAY

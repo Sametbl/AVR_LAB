@@ -1,0 +1,36 @@
+<ASSEMBLER_INFO>
+ <VERSION>2.2.7</VERSION>
+ <DEVICE>"ATmega324P"</DEVICE>
+ <WORKING_DIR>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_3\COMPARE_MATCH_7_segment\COMPARE_MATCH_50Hz_7_segment\COMPARE_MATCH_50Hz_7_segment\Debug</WORKING_DIR>
+ <INCLUDE_PATH>
+  <DIR>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc</DIR>
+  <DIR>D:\Atmel\Studio\7.0\toolchain\avr8\avrassembler\Include</DIR>
+  <DIR></DIR>
+ </INCLUDE_PATH>
+ <SOURCE_FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_3\COMPARE_MATCH_7_segment\COMPARE_MATCH_50Hz_7_segment\COMPARE_MATCH_50Hz_7_segment\main.asm</SOURCE_FILE>
+ <INCLUDED_FILES>
+  <FILE>D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m324padef.inc</FILE>
+ </INCLUDED_FILES>
+ <OBJECT_FILES>
+  <FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_3\COMPARE_MATCH_7_segment\COMPARE_MATCH_50Hz_7_segment\COMPARE_MATCH_50Hz_7_segment\Debug\COMPARE_MATCH_50Hz_7_segment.obj</FILE>
+ </OBJECT_FILES>
+ <HEX_FILES>
+  <FILE>COMPARE_MATCH_50Hz_7_segment.hex</FILE>
+ </HEX_FILES>
+ <OUTPUT_FILES>
+  <FILE>COMPARE_MATCH_50Hz_7_segment.map</FILE>
+  <FILE>COMPARE_MATCH_50Hz_7_segment.lss</FILE>
+ </OUTPUT_FILES>
+ <LABELS>
+  <MAIN><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_3\COMPARE_MATCH_7_segment\COMPARE_MATCH_50Hz_7_segment\COMPARE_MATCH_50Hz_7_segment\main.asm</FILE><LINE>47</LINE></MAIN>
+  <COMPARE_MATCH><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_3\COMPARE_MATCH_7_segment\COMPARE_MATCH_50Hz_7_segment\COMPARE_MATCH_50Hz_7_segment\main.asm</FILE><LINE>157</LINE></COMPARE_MATCH>
+  <BCD_TABLE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_3\COMPARE_MATCH_7_segment\COMPARE_MATCH_50Hz_7_segment\COMPARE_MATCH_50Hz_7_segment\main.asm</FILE><LINE>28</LINE></BCD_TABLE>
+  <COMMON_ANODE_TABLE><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_3\COMPARE_MATCH_7_segment\COMPARE_MATCH_50Hz_7_segment\COMPARE_MATCH_50Hz_7_segment\main.asm</FILE><LINE>31</LINE></COMMON_ANODE_TABLE>
+  <LED7_NUM><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_3\COMPARE_MATCH_7_segment\COMPARE_MATCH_50Hz_7_segment\COMPARE_MATCH_50Hz_7_segment\main.asm</FILE><LINE>34</LINE></LED7_NUM>
+  <LED_7SEG_PORT_INIT><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_3\COMPARE_MATCH_7_segment\COMPARE_MATCH_50Hz_7_segment\COMPARE_MATCH_50Hz_7_segment\main.asm</FILE><LINE>71</LINE></LED_7SEG_PORT_INIT>
+  <TIMER1_INIT><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_3\COMPARE_MATCH_7_segment\COMPARE_MATCH_50Hz_7_segment\COMPARE_MATCH_50Hz_7_segment\main.asm</FILE><LINE>135</LINE></TIMER1_INIT>
+  <INF_LOOP><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_3\COMPARE_MATCH_7_segment\COMPARE_MATCH_50Hz_7_segment\COMPARE_MATCH_50Hz_7_segment\main.asm</FILE><LINE>67</LINE></INF_LOOP>
+  <DISPLAY_7SEG><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_3\COMPARE_MATCH_7_segment\COMPARE_MATCH_50Hz_7_segment\COMPARE_MATCH_50Hz_7_segment\main.asm</FILE><LINE>87</LINE></DISPLAY_7SEG>
+  <TIMER1_COMP_ISR_CONT><FILE>I:\OneDrive\Desktop\VXL_LAB\LAB_3\Experiment_3\COMPARE_MATCH_7_segment\COMPARE_MATCH_50Hz_7_segment\COMPARE_MATCH_50Hz_7_segment\main.asm</FILE><LINE>178</LINE></TIMER1_COMP_ISR_CONT>
+ </LABELS>
+</ASSEMBLER_INFO>

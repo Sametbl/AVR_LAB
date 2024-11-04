@@ -18,9 +18,13 @@
 
 <item itemtype="Oscope" CircId="Oscope-12" mainComp="false" Show_id="false" Show_Val="false" Pos="104,0" rotation="0" hflip="1" vflip="1" label="Oscope-12" idLabPos="-90,-100" labelrot="0" valLabPos="-16,20" valLabRot="0" Basic_X="135 _px" Basic_Y="135 _px" BufferSize="600000" connectGnd="true" InputImped="10 MΩ" TimDiv="1000000000" TimPos="0,0,0,0," VolDiv="1,1,1,1," Tunnels=",,,," Trigger="4" Filter="0.1 V" Trigger="4" AutoSC="4" Tracks="1" HideCh="false,false,false,false," VolPos="0,0,0,0," />
 
+<item itemtype="FreqMeter" CircId="FreqMeter-14" mainComp="false" Show_id="false" Show_Val="false" Pos="56,-92" rotation="0" hflip="1" vflip="1" label="FreqMeter-14" idLabPos="-32,-24" labelrot="0" valLabPos="-16,20" valLabRot="0" Filter="0.1 V" />
+
 <item itemtype="Node" CircId="Node-7" mainComp="false" Pos="-184,-92" />
 
 <item itemtype="Node" CircId="Node-13" mainComp="false" Pos="-44,-156" />
+
+<item itemtype="Node" CircId="Node-15" mainComp="false" Pos="-44,-92" />
 
 <item itemtype="Connector" uid="Connector-3" startpinid="Rail-3-outnod" endpinid="Resistor-5-lPin" pointList="-184,-172,-184,-152" />
 
@@ -36,10 +40,14 @@
 
 <item itemtype="Connector" uid="Connector-11" startpinid="Led-8-rPin" endpinid="Ground-9-Gnd" pointList="64,-156,96,-156,96,-136" />
 
-<item itemtype="Connector" uid="Connector-12" startpinid="Oscope-12-Pin0" endpinid="Node-13-1" pointList="16,-48,-44,-48,-44,-156" />
-
 <item itemtype="Connector" uid="Connector-13" startpinid="Resistor-10-lPin" endpinid="Node-13-0" pointList="-32,-156,-44,-156" />
 
 <item itemtype="Connector" uid="Connector-14" startpinid="Node-13-2" endpinid="mega324-2-PORTA0" pointList="-44,-156,-64,-156" />
+
+<item itemtype="Connector" uid="Connector-15" startpinid="FreqMeter-14-lPin" endpinid="Node-15-1" pointList="16,-92,-44,-92" />
+
+<item itemtype="Connector" uid="Connector-16" startpinid="Oscope-12-Pin0" endpinid="Node-15-0" pointList="16,-48,-44,-48,-44,-92" />
+
+<item itemtype="Connector" uid="Connector-17" startpinid="Node-15-2" endpinid="Node-13-1" pointList="-44,-92,-44,-156" />
 
 </circuit>

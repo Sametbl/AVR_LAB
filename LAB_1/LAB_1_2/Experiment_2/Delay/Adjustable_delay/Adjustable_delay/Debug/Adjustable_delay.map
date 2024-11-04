@@ -1,5 +1,5 @@
 
-AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\Delay\Adjustable_delay\Adjustable_delay\main.asm Tue Oct 22 07:16:02 2024
+AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_2\Experiment_2\Delay\Adjustable_delay\Adjustable_delay\main.asm Fri Oct 25 12:44:14 2024
 
 
 EQU  SIGNATURE_000 0000001e
@@ -826,9 +826,9 @@ EQU  URXC1addr    00000038
 EQU  UDRE1addr    0000003a
 EQU  UTXC1addr    0000003c
 EQU  INT_VECTORS_SIZE 0000003e
-EQU  A            0000001e
-EQU  B            000000ac
-EQU  C            00000005
+EQU  A            00000034
+EQU  B            000000d7
+EQU  C            000000ea
 CSEG MAIN_NPC     00000000
 CSEG DELAY        00000003
 CSEG L2           00000004

@@ -19,23 +19,23 @@
 
 .ORG 00
 
-
-
 MAIN:
-			  LDI     R16,    0x0F
+			  LDI     R16,    0x0F   ; Config P0 -> P3 as OUTPUT
 			  OUT     DDRA,   R16
 
-			  CBI     PORTA,  3      ; PA3 = 0 (clear shift register)
-			  SBI     PORTA,  3      ; PA3 = 1 (stop clearing)
+			  CBI     PORTA,  3      ; Pulse SRCLR pin to (clear shift register)
+			  SBI     PORTA,  3      ; SRCLR pin is ACTIVE LOW
 
 CHASE_UP:     LDI     R17,    0x08
               SBI     PORTA,  2      ; PA2 = SER = 1
               
 LOOP_UP:      SBI     PORTA,  0      ; pulse PA0 = SRCLK
 			  CBI     PORTA,  0 
+
 			  SBI     PORTA,  1      ; pulse PA1 = RCLK
 			  CBI     PORTA,  1     
-			  RCALL   DELAY
+
+			  RCALL   DELAY          ; Delay 500 ms
 			  DEC     R17 
 			  BRNE    LOOP_UP
 			  RJMP    CHASE_DOWN
@@ -47,8 +47,10 @@ CHASE_DOWN:   LDI     R17,    0x08
               
 LOOP_DOWN:    SBI     PORTA,  0      ; pulse PA0 = SRCLK
 			  CBI     PORTA,  0 
+
 			  SBI     PORTA,  1      ; pulse PA1 = RCLK
 			  CBI     PORTA,  1     
+
 			  RCALL   DELAY
 			  DEC     R17 
 			  BRNE    LOOP_DOWN
@@ -56,11 +58,10 @@ LOOP_DOWN:    SBI     PORTA,  0      ; pulse PA0 = SRCLK
 
 
 
-
 DELAY:                    ; # of Cycle of Instr 
-		LDI   R22, 22      ; +1                      
-L2:     LDI   R21, 230      ; +1              }      
-L1:	    LDI   R20, 252      ; +1        }  
+		LDI   R22, 22     ; +1                      
+L2:     LDI   R21, 230    ; +1              }      
+L1:	    LDI   R20, 252    ; +1        }  
 L0:		DEC   R20         ; +1  } L0 = 3A 
 		BRNE  L0          ; +2  }
 		                  ; -1        } L1 = B* (L0 + 4 -1) = 3AB + 3B  

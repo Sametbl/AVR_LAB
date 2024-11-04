@@ -17,8 +17,6 @@ START:			LDI    R16, 0xFF
 LOOP:			CALL   TIMER1_DELAY       ; {COM1A1, COM1A0} = 2'b01 ==> Toggle OC1A   when TCNT1 = OCR1A
 				RJMP   LOOP
 
-
-
 TIMER1_DELAY:								    ; (+3) For CALL to here  
 				 LDI    R16,     0				; (+1) Clear Timer
 			     STS    TCNT1H,  R16            ; (+2)

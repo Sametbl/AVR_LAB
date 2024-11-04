@@ -16,13 +16,13 @@
 ; CS[2:0] = 3'b101  ==> Prescale = 1024
 ; CS[2:0] = 3'b110  ==> External clk, Negedge
 ; CS[2:0] = 3'b111  ==> External clk, Posedge
-; MAX delay = 262 160 cycles
+; MAX delay = 262 160 cycles 
 
 
 ; Internal clk = 8 MHz
- 
-.EQU   TCCR0B_mode = 0b00000011
-.EQU   TCNT_init   = 131   ; 0 to 255
+; => MAX delay = 32,77 ms 
+.EQU   TCCR0B_mode = 0b00000100
+.EQU   TCNT_init   = 100   ; 0 to 255
 
 start:
 				CALL   TIMER0_DELAY

@@ -31,12 +31,12 @@ INITTIMER0:
 			 LDI   R16,    (1 << PB3) | (1 << PB4)			; SET OC0A (PB3) AND OC0B (PB4) PINS AS OUTPUTS 
 			 OUT   DDRB,   R16	
 
-			 LDI   R16,    TCCR0A_table_3
-			 LDI   R17,    TCCR0B_table_3 
+			 LDI   R16,    TCCR0A_table_2                   ; Adjust for to select Mode in the tables
+			 LDI   R17,    TCCR0B_table_2 
 			 OUT   TCCR0A, R16								; SETUP TCCR0A 
 			 OUT   TCCR0B, R17								; SETUP TCCR0B 
 
-			 LDI   R16,    100 
+			 LDI   R16,    255 
 			 OUT   OCR0A,  R16								; OCRA = 100 
 
 			 LDI   R16,    75  

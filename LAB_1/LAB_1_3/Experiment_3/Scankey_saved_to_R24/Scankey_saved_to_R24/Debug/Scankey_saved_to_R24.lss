@@ -1,7 +1,11 @@
 
-AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm Mon Oct 21 19:05:30 2024
+AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm Mon Nov 04 16:14:38 2024
 
 [builtin](2): Including file 'D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m324padef.inc'
+I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm(143): warning: Register r29 already defined by the .DEF directive
+I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm(144): warning: Register r28 already defined by the .DEF directive
+I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm(146): warning: Register r27 already defined by the .DEF directive
+I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scankey_saved_to_R24\Scankey_saved_to_R24\main.asm(147): warning: Register r26 already defined by the .DEF directive
 [builtin](2): Including file 'D:/Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.3.300\avrasm\inc\m324padef.inc'
                                  
                                  ;
@@ -1160,72 +1164,446 @@ AVRASM ver. 2.2.7  I:\OneDrive\Desktop\VXL_LAB\LAB_1\LAB_1_3\Experiment_3\Scanke
                                  
                                  ; ATmega324PA keypad scan function 
                                  ; Scans a 4x4 keypad connected to PORTC
-                                 ; Column 3 to 0 connect to PA3 -> PA0 
-                                 ; Row    3 tp 0 connect to PA7 -> PA4 
+                                 ; Column 3 to 0 connect to Px3 -> Px0 
+                                 ; Row    3 tp 0 connect to Px7 -> Px4 
                                  ; Returns the key value (0-15) or 0xFF if no key is pressed 
                                  
-000000 ef0f                      START:		LDI    R16,   0xFF                ; PORTB = Output (LED bar)
-000001 b904                      			OUT    DDRB,  R16
                                  
-000002 e04f                      			LDI    R20,   0b00001111		  ; Set Upper 4 bits (Row) of PORTC as Input with pull-up, lower 4 bits as Output (Column)
-000003 b947                      			OUT    DDRC,  R20 
+                                 .ORG 0x0000   ; Reset Vector
+000000 940c 0014                 		JMP   MAIN
                                  
-000004 d003                      LOOP:       RCALL  KEYPAD_SCAN
-000005 b985                      			OUT    PORTB, R24
-000006 cffd                      			RJMP   LOOP
                                  
-000007 cfff                      HALT:		RJMP   HALT
+                                 .EQU    DDR_KP   = DDRB
+                                 .EQU    PORT_KP  = PORTB
+                                 .EQU    PIN_KP   = PINB
+                                 
+                                 .EQU    LED_DDR_OUT  = DDRD
+                                 .EQU    LED_PORT_OUT = PORTD
+                                 
+                                 .EQU	LCDPORT    = PORTA  ; SET SIGNAL PORT REG TO PORTA
+                                 .EQU	LCDPORTDIR = DDRA   ; SET SIGNAL PORT DIR REG TO PORTA
+                                 .EQU	LCDPORTPIN = PINA	; SET CLEAR SIGNAL PORT PIN REG TO PORTA
+                                 .EQU	LCD_RS	= PINA0
+                                 .EQU	LCD_RW	= PINA1
+                                 .EQU	LCD_EN	= PINA2
+                                 .EQU	LCD_D7	= PINA7
+                                 .EQU	LCD_D6	= PINA6
+                                 .EQU	LCD_D5	= PINA5
+                                 .EQU	LCD_D4	= PINA4
+                                 
+                                 .DEF	LCDDATA = R16
+                                 
+                                 
+000002 544c
+000003 562e
+000004 2059
+000005 2026
+000006 5454
+000007 542e
+000008 414f
+000009 004e                      GROUP:       .DB    "LT.VY & TT.TOAN", 0
+00000a 4f43
+00000b 4e55
+00000c 4554
+00000d 3a52
+00000e 0020                      KEYPAD_MSG:  .DB    "COUNTER: ", 0
+00000f 3130
+000010 3332
+000011 3534
+000012 3736
+000013 3938                      NUMBER:      .DB    "0123456789"
+                                 
+                                 
+                                 
+                                 
+000014 ef0f                      MAIN:		LDI    R16,      0xFF             ; PORTB = Output (LED bar)
+000015 b90a                      			OUT    LED_DDR_OUT,  R16
+                                 
+000016 e04f                      			LDI    R20,      0b00001111		  ; Set Upper 4 bits (Row) of PORTC as Input with pull-up, lower 4 bits as Output (Column)
+000017 b944                      			OUT    DDR_KP,   R20 
+                                 
+000018 940e 00c3                 			CALL   LCD_INIT						; Initialize LCD pinouts
+00001a 940e 0045                 			CALL   DISPLAY_GROUP_MEMBER_NAME
+                                 
+00001c 2422                      			CLR    R2
+00001d 940e 0056                 			CALL   NUMBER_ON_LCD
+                                 
+                                 
+00001f d006                      LOOP:       RCALL  KEYPAD_SCAN				  ; Number display is store in R24
+000020 d0fd                      			RCALL  DELAY_10MS
+000021 b98b                      			OUT    LED_PORT_OUT, R24
+000022 2e28                      			MOV    R2,           R24
+000023 940e 0056                 			CALL   NUMBER_ON_LCD				  ; Display number on LCD
+000025 cff9                      			RJMP   LOOP
+                                 
+                                 
                                  
                                  KEYPAD_SCAN: 
-000008 ef4f                      			LDI   R20,   0b11111111		  
-000009 b948                      			OUT   PORTC, R20  
-00000a e057                      			LDI   R21,   0b00000111			 ; Initial Column Mask 
-00000b e064                      			LDI   R22,   4					 ; R22 = Col, start check from Column 4, then 3, 2 , 1 (Because the Mask start with PC3 = 0) 
+000026 ef57                      			LDI   R21,   0b11110111			 ; Initial Column Mask (OULL UO registors ???????)
+000027 e063                      			LDI   R22,   3					 ; R22 = Col, start check from Column 4, then 3, 2 , 1 (Because the Mask start with PC3 = 0) 
                                  
                                  KEYPAD_SCAN_LOOP: 
-00000c b958                      			OUT   PORTC, R21				 ; Scan current col - Enable pull up resistor and Set Unread Column HIGH
-00000d 0000                      			NOP								 ; Need to have 1us delay to stablize 
+000028 b955                      			OUT   PORT_KP, R21				 ; Scan current col - Enable pull up resistor and Set Unread Column HIGH
+000029 0000                      			NOP								 ; Need to have 1us delay to stablize 
                                  
-00000e 9934                      			SBIC  PINC,  4					 ; Check Row 0 
-00000f c002                      			RJMP  KEYPAD_SCAN_CHECK_ROW2 
-000010 e080                      			LDI   R24,   0				 	 ; Row 0 is PRESSED
-000011 c011                      			RJMP  KEYPAD_SCAN_FOUND
+00002a 991c                      			SBIC  PIN_KP,  4				 ; Check Row 0 
+00002b c002                      			RJMP  KEYPAD_SCAN_CHECK_ROW2 
+00002c e080                      			LDI   R24,   0				 	 ; Row 0 is PRESSED
+00002d c011                      			RJMP  KEYPAD_SCAN_FOUND
                                  
                                  KEYPAD_SCAN_CHECK_ROW2: 
-000012 9935                      			SBIC  PINC,  5					 ; Check ROW 1 
-000013 c002                      			RJMP  KEYPAD_SCAN_CHECK_ROW3 
-000014 e081                      			LDI   R24,   1					 ; Row 1 IS PRESSED 
-000015 c00d                      			RJMP  KEYPAD_SCAN_FOUND 
+00002e 991d                      			SBIC  PIN_KP,  5					 ; Check ROW 1 
+00002f c002                      			RJMP  KEYPAD_SCAN_CHECK_ROW3 
+000030 e081                      			LDI   R24,   1					 ; Row 1 IS PRESSED 
+000031 c00d                      			RJMP  KEYPAD_SCAN_FOUND 
                                  
                                  KEYPAD_SCAN_CHECK_ROW3: 
-000016 9936                      			SBIC  PINC,  6					 ; Check Row 2 
-000017 c002                      			RJMP  KEYPAD_SCAN_CHECK_ROW4 
-000018 e082                      			LDI   R24,   2					 ; Row 2 IS PRESSED 
-000019 c009                      			RJMP  KEYPAD_SCAN_FOUND 
+000032 991e                      			SBIC  PIN_KP,  6					 ; Check Row 2 
+000033 c002                      			RJMP  KEYPAD_SCAN_CHECK_ROW4 
+000034 e082                      			LDI   R24,   2					 ; Row 2 IS PRESSED 
+000035 c009                      			RJMP  KEYPAD_SCAN_FOUND 
                                  
                                  KEYPAD_SCAN_CHECK_ROW4: 
-00001a 9937                      			SBIC  PINC,  7					 ; CHECK ROW 3 
-00001b c002                      			RJMP  KEYPAD_SCAN_NEXT_COL 
-00001c e083                      			LDI   R24,   3					 ; ROW 3 IS PRESSED 
-00001d c005                      			RJMP  KEYPAD_SCAN_FOUND 
+000036 991f                      			SBIC  PIN_KP,  7					 ; CHECK ROW 3 
+000037 c002                      			RJMP  KEYPAD_SCAN_NEXT_COL 
+000038 e083                      			LDI   R24,   3					 ; ROW 3 IS PRESSED 
+000039 c005                      			RJMP  KEYPAD_SCAN_FOUND 
                                   
                                  KEYPAD_SCAN_NEXT_COL: 
-00001e 3061                      			CPI   R22,  1					 ; Check if the last COL (1) have been scanned 
-00001f f039                      			BREQ  KEYPAD_SCAN_NOT_FOUND 
+00003a 3060                      			CPI   R22,  0					 ; Check if the last COL (1) have been scanned 
+00003b f039                      			BREQ  KEYPAD_SCAN_NOT_FOUND 
                                   
-000020 9557                      			ROR   R21						 ; Shift Col mask to scan next row 
-000021 956a                      			DEC   R22						 ; Increase Col Index 
-000022 cfe9                      			RJMP  KEYPAD_SCAN_LOOP 
+00003c 9557                      			ROR   R21						 ; Shift Col mask to scan next row 
+00003d 956a                      			DEC   R22						 ; Increase Col Index 
+00003e cfe9                      			RJMP  KEYPAD_SCAN_LOOP 
                                   
                                  KEYPAD_SCAN_FOUND: 
                                  											 ; KEY CODE = Row * 4 + Col 
-000023 0f88                      			LSL   R24						 ; Shift Left 2 times to multiply it by 4 
-000024 0f88                      			LSL   R24 
-000025 0f86                      			ADD   R24,   R22				 ; Add row value to column value 
-000026 9508                      			RET 
+00003f 0f88                      			LSL   R24						 ; Shift Left 2 times to multiply it by 4 
+000040 0f88                      			LSL   R24 
+000041 0f86                      			ADD   R24,   R22				 ; Add row value to column value 
+000042 9508                      			RET 
                                   
                                  KEYPAD_SCAN_NOT_FOUND: 
-000027 ef8f                      			LDI   R24,   0xFF				 ; No key pressed 
+000043 ef8f                      			LDI   R24,   0xFF				 ; No key pressed 
+000044 9508                      			RET 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 DISPLAY_GROUP_MEMBER_NAME:
+000045 e000                      				LDI     R16, 0					 
+000046 e010                      				LDI     R17, 0
+000047 940e 0093                 				CALL	LCD_MOVE_CURSOR 
+                                 
+000049 e0f0                      				LDI     ZH, HIGH(GROUP)				; POINT TO THE INFORMATION THAT IS TO BE DISPLAYED
+00004a e0e2                      				LDI     ZL, LOW (GROUP)
+00004b 940e 00b4                 				CALL    LCD_SEND_STRING
+00004d e001                      				LDI		R16, 1
+00004e e010                      				LDI		R17, 0
+00004f 940e 0093                 				CALL	LCD_MOVE_CURSOR 
+000051 e0f0                      				LDI     ZH, HIGH(KEYPAD_MSG)		; POINT TO THE INFORMATION THAT IS TO BE DISPLAYED
+000052 e0ea                      				LDI     ZL, LOW (KEYPAD_MSG)
+000053 940e 00b4                 				CALL    LCD_SEND_STRING
+000055 9508                      				RET
+                                 
+                                 
+                                 
+                                 
+                                 .DEF    Dividend_H  = R29
+                                 .DEF    Dividend_L  = R28
+                                 
+                                 .DEF    Divisor_H   = R27
+                                 .DEF    Divisor_L   = R26
+                                 
+                                 .DEF    Quotient_H  = R25
+                                 .DEF    Remainder_H = R24
+                                 
+                                 .DEF    Quotient_L  = R23
+                                 .DEF    Remainder_L = R22
+                                 
+                                 
+                                 ; Display number of R2 (8-bit, 0 to 255)
+000056 931f                      NUMBER_ON_LCD:   PUSH  R17
+000057 922f                      				 PUSH  R2
+                                 
+000058 e0d0                      				 LDI   Dividend_H,  0
+000059 2dc2                      				 MOV   Dividend_L,  R2		
+00005a e0b0                      				 LDI   Divisor_H,   0
+00005b e6a4                      				 LDI   Divisor_L,   100
+00005c d020                      				 RCALL DIVISION
+00005d 2e57                      				 MOV   R5,        Quotient_L		; 3rd digit
+                                 
+00005e e0d0                      				 LDI   Dividend_H,  0
+00005f 2fc6                      				 MOV   Dividend_L,  Remainder_L	
+000060 e0b0                      				 LDI   Divisor_H,   0
+000061 e0aa                      				 LDI   Divisor_L,   10
+000062 d01a                      				 RCALL DIVISION
+000063 2e47                      				 MOV   R4,        Quotient_L		; 2nd digit
+000064 2e36                      				 MOV   R3,        Remainder_L		; 1st digit
+                                 
+000065 ec0b                      				 LDI   R16, 0xCB				; Set cursor to Row = , Col =
+000066 940e 0109                 				 CALL  LCD_SEND_COMMAND
+000068 2c25                      				 MOV   R2, R5					
+000069 940e 00a3                 				 CALL  LCD_SEND_CHAR			; Diplay 1 digit store in R2
+                                 
+                                 
+00006b ec0c                      				 LDI   R16, 0xCC				; Set cursor to Row = , Col =
+00006c 940e 0109                 				 CALL  LCD_SEND_COMMAND
+00006e 2c24                      				 MOV   R2, R4
+00006f 940e 00a3                 				 CALL  LCD_SEND_CHAR			; Diplay 1 digit store in R2
+                                 
+                                 
+000071 ec0d                      				 LDI   R16, 0xCD				; Set cursor to Row = , Col =
+000072 940e 0109                 				 CALL  LCD_SEND_COMMAND
+000074 2c23                      				 MOV   R2, R3
+000075 940e 00a3                 				 CALL  LCD_SEND_CHAR			; Diplay 1 digit store in R2
+                                 
+000077 e00c                      				 LDI   R16, 0x0C				; Turn of cursor
+000078 940e 0109                 				 CALL  LCD_SEND_COMMAND
+00007a 902f                      				 POP   R2
+00007b 911f                      				 POP   R17
+00007c 9508                      				 RET
+                                 
+                                 
+00007d 93df                      DIVISION:      PUSH  Dividend_H
+00007e 93cf                      			   PUSH  Dividend_L
+00007f 93bf                      			   PUSH  Divisor_H
+000080 93af                      			   PUSH  Divisor_L
+000081 930f                      			   PUSH  R16
+                                 
+000082 2799                      			   CLR   Quotient_H     ; To count "quotient"
+000083 2777                      			   CLR   Quotient_L
+000084 2700                      			   CLR   R16
+                                 
+                                 DIVISION_LOOP: 			   
+000085 2f8d                      			   MOV   Remainder_H,  Dividend_H
+000086 2f6c                      			   MOV   Remainder_L,  Dividend_L		  ; Save Remainder (Useful for the last iteration)
+                                 
+000087 1bca                      			   SUB   Dividend_L,   Divisor_L          ; Y - X 
+000088 0bdb                      			   SBC   Dividend_H,   Divisor_H     
+000089 f01a                      			   BRMI  DIVISION_STOP					 ; If negative, exit
+00008a 9573                      			   INC   Quotient_L   
+00008b 1f90                                     ADC   Quotient_H,   R16				 ; + carry from INC R18
+00008c cff8                      			   RJMP  DIVISION_LOOP
+                                 
+                                 
+00008d 910f                      DIVISION_STOP: POP   R16
+00008e 91af                      			   POP   Divisor_L
+00008f 91bf                      			   POP   Divisor_H
+000090 91cf                      			   POP   Dividend_L
+000091 91df                      			   POP   Dividend_H
+000092 9508                      			   RET
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 LCD_MOVE_CURSOR:
+                                 
+000093 3000                      			CPI		R16,   0				     ; Check if first row
+000094 f431                      			BRNE	LCD_MOVE_CURSOR_SECOND
+000095 701f                      			ANDI	R17,   0x0F                  ; Set the State of RS and RW pins 
+000096 6810                      			ORI		R17,   0x80                  ; R17 = DDRAM location of beginning of first Row
+000097 2f01                      			MOV		R16,   R17                   ; Save that location to R16
+000098 940e 0109                 			CALL    LCD_SEND_COMMAND		     ; Send command to LCD to move cursor 
+00009a 9508                      			RET
+                                 
+                                 LCD_MOVE_CURSOR_SECOND:
+00009b 3001                      			CPI		R16,   1					 ; Check if second row
+00009c f429                      			BRNE	LCD_MOVE_CURSOR_EXIT		 ; ELSE EXIT 
+00009d 701f                      			ANDI	R17,   0x0F					 ; Set the State of RS and RW pins 
+00009e 6c10                      			ORI		R17,   0xC0					 ; R17 = DDRAM location of beginning of second Row
+00009f 2f01                      			MOV		R16,   R17					 ; Save that location to R16
+0000a0 940e 0109                 			CALL    LCD_SEND_COMMAND			 ; Send command to LCD to move cursor 
+                                 LCD_MOVE_CURSOR_EXIT:
+0000a2 9508                      		    RET		
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 LCD_SEND_CHAR:
+0000a3 93ff                          PUSH  ZH							; PRESERVE POINTER REGISTERS
+0000a4 93ef                          PUSH  ZL
+0000a5 930f                      	PUSH  LCDDATA
+0000a6 922f                      	PUSH  R2
+                                 	
+0000a7 e0f0                       	LDI   ZH, HIGH(NUMBER << 1)			; Point to the information that is to be displayed
+0000a8 e1ee                      	LDI   ZL, LOW (NUMBER << 1) 
+0000a9 0de2                          ADD   ZL, R2
+0000aa 2422                      	CLR   R2
+0000ab 1df2                      	ADC   ZH, R2
+0000ac 9104                          LPM   LCDDATA,  Z					; GET A CHARACTER
+                                 
+0000ad 940e 00f3                     CALL  LCD_SEND_DATA					; DISPLAY THE CHARACTER
+                                 
+0000af 902f                          POP   R2
+0000b0 910f                      	POP	  LCDDATA
+0000b1 91ef                          POP   ZL							; RESTORE POINTER REGISTERS
+0000b2 91ff                          POP   ZH
+0000b3 9508                          RET
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 
+                                 LCD_SEND_STRING:
+0000b4 93ff                      			PUSH    ZH                           ; Preserve pointer registers
+0000b5 93ef                      			PUSH    ZL
+0000b6 930f                      			PUSH	LCDDATA
+                                 												
+0000b7 0fee                      			LSL     ZL                           ; LSL + ROL = Shift left for 16-bit Z reigster for the LPM instruction
+0000b8 1fff                      			ROL     ZH
+                                 
+                                 LCD_SEND_STRING_LOOP:							 ; Write the string of characters to DDRAM 
+0000b9 9105                      			LPM     LCDDATA,   Z+                ; Get a character
+0000ba 3000                      			CPI     LCDDATA,   0                 ; Check for end of string
+0000bb f019                      			BREQ    LCD_SEND_STRING_DONE         ; If Null character ==> DONE
+0000bc 940e 00f3                 			CALL    LCD_SEND_DATA                ; Display the character
+0000be cffa                      			RJMP    LCD_SEND_STRING_LOOP         ; Not DONE, send another character
+                                 
+                                 LCD_SEND_STRING_DONE:
+0000bf 910f                      			POP		LCDDATA						 ; RESTORE POINTER REGISTERS
+0000c0 91ef                      			POP     ZL                        
+0000c1 91ff                      			POP     ZH
+0000c2 9508                      			RET
+                                 
+                                 
+                                 
+                                 LCD_INIT:
+0000c3 ef07                      			LDI    R16,   0b11110111			; Set PA7 -> PA4 as Output, PA2 -> PA0 as output
+0000c4 b901                      			OUT    LCDPORTDIR,  R16
+                                 									
+0000c5 940e 011e                 			CALL   DELAY_10ms					; WAIT FOR LCD TO POWER UP
+0000c7 940e 011e                 			CALL   DELAY_10ms
+                                 											
+0000c9 e002                      			LDI    R16,   0x02					; FUNCTION SET: 4-bit, 2 lines, 5x7 dot interface
+0000ca 940e 0109                 			CALL   LCD_SEND_COMMAND
+                                 
+0000cc e208                      			LDI    R16,   0x28					; FUNCTION SET: enable 5x7 mode for chars 
+0000cd 940e 0109                 			CALL   LCD_SEND_COMMAND
+0000cf e00e                      			LDI    R16,   0x0E					; DISPLAY CONTROL: DISPLAY ON, CURSOR ON
+0000d0 940e 0109                 			CALL   LCD_SEND_COMMAND
+0000d2 e001                      			LDI    R16,   0x01					; Clear display and DDRAM contents
+0000d3 940e 0109                 			CALL   LCD_SEND_COMMAND
+0000d5 e800                      			LDI    R16,   0x80					; Return Cursor to the beginning
+0000d6 940e 0109                 			CALL   LCD_SEND_COMMAND
+0000d8 9508                      			RET
+                                 
+                                 
+                                 
+                                 LCD_WAIT_BUSY:
+0000d9 930f                      			PUSH   R16
+0000da e007                      			LDI    R16,   0b00000111			; Set PA7-PA4 as Input, PA2-PA0 as Output
+0000db b901                      			OUT    LCDPORTDIR,  R16
+0000dc ef02                      			LDI	   R16,   0b11110010			; Set RS = 0, RW = 1 for read the busy flag
+0000dd b902                      			OUT	   LCDPORT,     R16
+0000de 0000                      			NOP
+                                 
+                                 LCD_WAIT_BUSY_LOOP:
+0000df 9a12                      			SBI    LCDPORT,  LCD_EN				; Pulse LCD_EN and read the flag
+0000e0 0000                      			NOP
+0000e1 0000                      			NOP
+0000e2 b100                      			IN     R16,     LCDPORTPIN
+0000e3 9812                      			CBI    LCDPORT,  LCD_EN
+0000e4 0000                      			NOP
+                                 
+0000e5 9a12                      			SBI    LCDPORT,  LCD_EN             ; Pulse LCD_EN again
+0000e6 0000                      			NOP
+0000e7 0000                      			NOP
+0000e8 9812                      			CBI    LCDPORT,  LCD_EN
+0000e9 0000                      			NOP
+                                 
+0000ea 7800                      			ANDI   R16,   0x80                  ; Extract PA7 = busy flag
+0000eb 3800                      			CPI	   R16,   0x80                  ; Check if busy flag is set 
+0000ec f391                      			BREQ   LCD_WAIT_BUSY_LOOP
+                                 
+0000ed ef07                      			LDI    R16,   0b11110111			; Set PA7-PA4 as Output, PA2-PA0 as Output
+0000ee b901                      			OUT    LCDPORTDIR, R16
+0000ef e000                      			LDI	   R16,   0b00000000			; Set RS = 0, RW = 1 for read the busy flag
+0000f0 b902                      			OUT	   LCDPORT,    R16	
+0000f1 910f                      			POP	   R16
+0000f2 9508                      			RET
+                                 
+                                 LCD_SEND_DATA:
+0000f3 931f                      			PUSH   R17
+0000f4 940e 00d9                 			CALL   LCD_WAIT_BUSY				; Check if lcd is busy
+0000f6 2f10                      			MOV	   R17,   R16					; Save the command				
+                                 														
+0000f7 7f10                      			ANDI   R17,   0xF0					; Extact the Upper nibble of Command
+0000f8 6011                      			ORI	   R17,   0x01					; Also Set RS = 1 and RW = 0 to write to lcd
+                                 		
+0000f9 b912                      			OUT    LCDPORT,  R17				; Send data to LCD
+0000fa 0000                      			NOP
+                                 			
+0000fb 9a12                      			SBI    LCDPORT,  LCD_EN		    	; Pulse ENABLE pin
+0000fc 0000                      			NOP
+0000fd 9812                      			CBI    LCDPORT,  LCD_EN
+0000fe 0000                      			NOP									; DELAY FOR COMMAND EXECUTION
+                                 
+0000ff 9502                      			SWAP   R16							; Swap Higher Nibble to Lower Nibble of Commmand
+000100 7f00                      			ANDI   R16,  0xF0                   ; And extract the Lower Nibble of the Command similarly
+000101 6001                      			ORI	   R16,  0x01					; Also Set RS = 1 and RW = 0 to write to lcd
+                                 		
+                                 
+000102 b902                      			OUT    LCDPORT,  R16				; Send command to LCD
+                                 
+000103 0000                      			NOP									; Pulse ENABLE pin
+000104 9a12                      			SBI    LCDPORT,  LCD_EN
+000105 0000                      			NOP
+000106 9812                      			CBI    LCDPORT,  LCD_EN
+000107 911f                      			POP    R17
+000108 9508                      			RET
+                                 
+                                 
+                                 LCD_SEND_COMMAND:
+000109 931f                      			PUSH   R17
+00010a 940e 00d9                 			CALL   LCD_WAIT_BUSY				; Check if LCD is busy 
+00010c 2f10                      			MOV    R17,  R16					; Save the command	
+                                 		
+00010d 7f10                      			ANDI   R17,  0xF0					; Extact the Upper nibble of Command
+                                 												; Also Set RS = 1 and RW = 0 to write to lcd
+                                 			
+00010e b912                      			OUT    LCDPORT,  R17				; Send command to LCD
+00010f 0000                      			NOP
+000110 0000                      			NOP
+                                 		
+000111 9a12                      			SBI    LCDPORT,  LCD_EN				; Pulse ENABLE pin
+000112 0000                      			NOP
+000113 0000                      			NOP
+000114 9812                      			CBI    LCDPORT,  LCD_EN
+                                 
+000115 9502                      			SWAP   R16							; Swap Higher Nibble to Lower Nibble of Commmand
+000116 7f00                      			ANDI   R16,  0xF0                   ; And extract the Lower Nibble of the Command similarly
+000117 b902                      			OUT    LCDPORT,  R16				; Send command to LCD
+                                 
+000118 9a12                      			SBI    LCDPORT,  LCD_EN			    ; Pulse ENABLE pin
+000119 0000                      			NOP
+00011a 0000                      			NOP
+00011b 9812                      			CBI	   LCDPORT,  LCD_EN
+00011c 911f                      			POP	   R17
+                                 
+00011d 9508                      			RET
+                                 
+                                 
+                                 DELAY_10MS:                  
+00011e e16e                      		LDI   R22, 30                  
+00011f ea5c                      L2:     LDI   R21, 172     
+000120 e045                      L1:	    LDI   R20, 5   
+000121 954a                      L0:		DEC   R20        
+000122 f7f1                      		BRNE  L0      
+                                 		                
+000123 955a                      		DEC   R21    
+000124 f7d9                      		BRNE  L1        
+                                 		               
+000125 956a                      		DEC   R22    
+000126 f7c1                      		BRNE  L2  	
+                                 		               
+000127 9508                      		RET            
 
 
 RESOURCE USE INFORMATION
@@ -1243,40 +1621,40 @@ counted separately from r26..r31 here.
 .dseg memory usage only counts static data declared with .byte
 
 "ATmega324P" register use summary:
-x  :   0 y  :   0 z  :   0 r0 :   0 r1 :   0 r2 :   0 r3 :   0 r4 :   0 
-r5 :   0 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
-r13:   0 r14:   0 r15:   0 r16:   2 r17:   0 r18:   0 r19:   0 r20:   4 
-r21:   3 r22:   4 r23:   0 r24:   9 r25:   0 r26:   0 r27:   0 r28:   0 
-r29:   0 r30:   0 r31:   0 
-Registers used: 5 out of 35 (14.3%)
+x  :   0 y  :   0 z  :   2 r0 :   0 r1 :   0 r2 :  13 r3 :   2 r4 :   2 
+r5 :   2 r6 :   0 r7 :   0 r8 :   0 r9 :   0 r10:   0 r11:   0 r12:   0 
+r13:   0 r14:   0 r15:   0 r16:  52 r17:  21 r18:   0 r19:   0 r20:   4 
+r21:   5 r22:   9 r23:   4 r24:  11 r25:   2 r26:   5 r27:   5 r28:   6 
+r29:   6 r30:   9 r31:   9 
+Registers used: 19 out of 35 (54.3%)
 
 "ATmega324P" instruction use summary:
-.lds  :   0 .sts  :   0 adc   :   0 add   :   1 adiw  :   0 and   :   0 
-andi  :   0 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
-brcc  :   0 brcs  :   0 break :   0 breq  :   1 brge  :   0 brhc  :   0 
-brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   0 
-brne  :   0 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
-brvs  :   0 bset  :   0 bst   :   0 call  :   0 cbi   :   0 cbr   :   0 
-clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   0 cls   :   0 
+.lds  :   0 .sts  :   0 adc   :   2 add   :   2 adiw  :   0 and   :   0 
+andi  :   7 asr   :   0 bclr  :   0 bld   :   0 brbc  :   0 brbs  :   0 
+brcc  :   0 brcs  :   0 break :   0 breq  :   3 brge  :   0 brhc  :   0 
+brhs  :   0 brid  :   0 brie  :   0 brlo  :   0 brlt  :   0 brmi  :   1 
+brne  :   5 brpl  :   0 brsh  :   0 brtc  :   0 brts  :   0 brvc  :   0 
+brvs  :   0 bset  :   0 bst   :   0 call  :  28 cbi   :   6 cbr   :   0 
+clc   :   0 clh   :   0 cli   :   0 cln   :   0 clr   :   5 cls   :   0 
 clt   :   0 clv   :   0 clz   :   0 com   :   0 cp    :   0 cpc   :   0 
-cpi   :   1 cpse  :   0 dec   :   1 eor   :   0 fmul  :   0 fmuls :   0 
-fmulsu:   0 icall :   0 ijmp  :   0 in    :   0 inc   :   0 jmp   :   0 
-ld    :   0 ldd   :   0 ldi   :  10 lds   :   0 lpm   :   0 lsl   :   2 
-lsr   :   0 mov   :   0 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
-neg   :   0 nop   :   1 or    :   0 ori   :   0 out   :   5 pop   :   0 
-push  :   0 rcall :   1 ret   :   2 reti  :   0 rjmp  :  11 rol   :   0 
-ror   :   1 sbc   :   0 sbci  :   0 sbi   :   0 sbic  :   4 sbis  :   0 
+cpi   :   5 cpse  :   0 dec   :   4 eor   :   0 fmul  :   0 fmuls :   0 
+fmulsu:   0 icall :   0 ijmp  :   0 in    :   1 inc   :   1 jmp   :   1 
+ld    :   0 ldd   :   0 ldi   :  42 lds   :   0 lpm   :   3 lsl   :   3 
+lsr   :   0 mov   :  15 movw  :   0 mul   :   0 muls  :   0 mulsu :   0 
+neg   :   0 nop   :  19 or    :   0 ori   :   4 out   :  13 pop   :  17 
+push  :  17 rcall :   4 ret   :  14 reti  :   0 rjmp  :  12 rol   :   1 
+ror   :   1 sbc   :   1 sbci  :   0 sbi   :   6 sbic  :   4 sbis  :   0 
 sbiw  :   0 sbr   :   0 sbrc  :   0 sbrs  :   0 sec   :   0 seh   :   0 
 sei   :   0 sen   :   0 ser   :   0 ses   :   0 set   :   0 sev   :   0 
 sez   :   0 sleep :   0 spm   :   0 st    :   0 std   :   0 sts   :   0 
-sub   :   0 subi  :   0 swap  :   0 tst   :   0 wdr   :   0 
-Instructions used: 13 out of 113 (11.5%)
+sub   :   1 subi  :   0 swap  :   2 tst   :   0 wdr   :   0 
+Instructions used: 33 out of 113 (29.2%)
 
 "ATmega324P" memory use summary [bytes]:
 Segment   Begin    End      Code   Data   Used    Size   Use%
 ---------------------------------------------------------------
-[.cseg] 0x000000 0x000052     82      0     82   32768   0.3%
+[.cseg] 0x000000 0x000250    556     36    592   32768   1.8%
 [.dseg] 0x000100 0x000100      0      0      0    2048   0.0%
 [.eseg] 0x000000 0x000000      0      0      0    1024   0.0%
 
-Assembly complete, 0 errors, 0 warnings
+Assembly complete, 0 errors, 4 warnings
